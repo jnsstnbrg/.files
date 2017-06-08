@@ -1,0 +1,48 @@
+# This is Git's per-user configuration file.
+[user]
+	name = Jonas Stenberg
+	email = jonas.d.stenberg@gmail.com
+[core]
+	autocrlf = false
+	pager =
+[http]
+	sslVerify = false
+[push]
+	default = simple
+[credential]
+	writelog = true
+[rerere]
+	enabled = true
+[merge]
+	tool = vimdiff
+[mergetool]
+	prompt = true
+[mergetool "vimdiff"]
+	cmd = nvim -d $LOCAL $REMOTE $MERGED -c '$wincmd w' -c 'wincmd J'
+[difftool]
+	prompt = false
+[diff]
+	tool = vimdiff
+[alias]
+	ls = "!f() { \
+		if [ -z $1 ]; then \
+			git log --pretty=format:\"%C(yellow)%h %ad%Cred%d %Creset%s%Cgreen [%an]\" --decorate --date=format:'%Y-%m-%d %H:%M:%S' -10 HEAD; \
+		else \
+			git log --pretty=format:\"%C(yellow)%h %ad%Cred%d %Creset%s%Cgreen [%an]\" --decorate --date=format:'%Y-%m-%d %H:%M:%S' -$1 HEAD; \
+		fi; \
+	}; \
+	f"
+
+	ll = "!f() { \
+		if [ -z $1 ]; then \
+			git log --pretty=format:\"%C(yellow)%h %ad%Cred%d %Creset%s%Cgreen [%an]\" --decorate --date=short --numstat -10 HEAD; \
+		else \
+			git log --pretty=format:\"%C(yellow)%h %ad%Cred%d %Creset%s%Cgreen [%an]\" --decorate --date=short --numstat -$1 HEAD; \
+		fi; \
+	}; \
+	f"
+
+	cp = cherry-pick -x
+[color]
+	ui = true
+	diff = true

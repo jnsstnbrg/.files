@@ -1,0 +1,20 @@
+# Color output, even if piping to a another program
+--color
+
+# Use case sensitive search if mixed case
+--smart-case
+
+# Follow symlinks
+--follow
+
+# Group matches by filename
+--group
+
+# Sort lexically
+--sort-files
+
+# Ignore directories
+--ignore-dir=node_modules
+--ignore-dir=bower_components
+--ignore-dir=match:tmp*
+--ignore-dir=match:dist*
