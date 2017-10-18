@@ -1,1 +1,1 @@
-alias whatismyip="./../scripts/whatismyip.sh"
+alias whatismyip="~/.config/scripts/whatismyip.sh"

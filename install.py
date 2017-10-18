@@ -30,6 +30,7 @@ shutil.copy('.zshrc', home)
 shutil.copy('.ackrc', home)
 shutil.copy('.gitconfig', home)
 copyTree('aliases', '{}/.config/aliases'.format(home))
+copyTree('scripts', '{}/.config/scripts'.format(home))
 
 mkdir('{}/.ssh'.format(home))
 shutil.copy('sshconfig', '{}/.ssh/config'.format(home))
