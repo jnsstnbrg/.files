@@ -7,9 +7,10 @@ plugins=(git git-extras docker gitignore man mvn node python sublime zsh-complet
 source $ZSH/oh-my-zsh.sh
 
 alias vi="nvim"
-source .config/aliases/jw.sh
+source ~/.config/aliases/jw.sh
+source ~/.config/aliases/private.sh
 
-export EDITOR='mvim'
+export EDITOR='nvim'
 
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8

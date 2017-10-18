@@ -38,5 +38,8 @@ nvimDir = '{}/.config/nvim'.format(home)
 mkdir('{}/.config/nvim'.format(home))
 shutil.copy('nvim.config', '{}/init.vim'.format(nvimDir))
 
+# Install brews
 call(['brew', 'bundle', '--file={}/.brewfile'.format(home)])
+
+# Install nvim plugins
 call(['nvim', '+PlugInstall', '+qall'])
