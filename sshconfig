@@ -1,7 +1,0 @@
-Host digitalocean
-    HostName 138.68.106.130
-    User jonas
-
-Host digitalocean_root
-    HostName 138.68.106.130
-    User root

@@ -1,3 +1,7 @@
+function! DoRemote(arg)
+  UpdateRemotePlugins
+endfunction
+
 " Specify a directory for plugins
 " - For Neovim: ~/.local/share/nvim/plugged
 " - Avoid using standard Vim directory names like 'plugin'
@@ -5,7 +9,6 @@ call plug#begin('~/.vim/plugged')
 
 " Neovim
 Plug 'ctrlpvim/ctrlp.vim'
-Plug 'Shougo/deoplete.nvim'
 Plug 'mileszs/ack.vim'
 
 " JS Linting
@@ -15,9 +18,12 @@ Plug 'w0rp/ale'
 Plug 'editorconfig/editorconfig-vim'
 
 " JS compilation
-Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+Plug 'Shougo/deoplete.nvim', { 'do': function('DoRemote') }
 Plug 'ternjs/tern_for_vim', { 'do': 'npm install' }
 Plug 'carlitux/deoplete-ternjs', { 'do': 'npm install -g tern' }
+
+" JS doc
+Plug 'heavenshell/vim-jsdoc'
 
 " Git status in gutter
 Plug 'airblade/vim-gitgutter'
@@ -25,9 +31,6 @@ Plug 'airblade/vim-gitgutter'
 " Js syntax highlighting
 Plug 'othree/es.next.syntax.vim'
 Plug 'othree/yajs.vim'
-
-" Js doc
-Plugin 'joegesualdo/jsdoc.vim'
 
 " nvim color schemes
 Plug 'rafi/awesome-vim-colorschemes'
@@ -50,6 +53,7 @@ set shiftround              " always indent/outdent to the nearest tabstop
 set expandtab               " use spaces instead of tabs
 set smarttab                " use tabs at the start of a line, spaces elsewherei
 set nowrap
+set number
 
 set autoread                " auto-reload files changed on disk
 set updatecount=0           " disable swap files
@@ -85,6 +89,11 @@ noremap   <Right>  <NOP>
 " Pressing ESC removes highlighting
 nnoremap <esc> :noh<return><esc>
 
+" Js doc
+nmap <silent> <C-l> <Plug>(jsdoc)
+" Allow ECMAScript 6 shorthand syntax.
+let g:jsdoc_enable_es6 = 1
+
 " Trim trailing whitespace on save
 autocmd BufWritePre * :%s/\s\+$//e
 
@@ -92,3 +101,22 @@ let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlP'
 
 let g:netrw_localrmdir="rm -r" " Allow removal of directories that aren't empty
+
+let g:deoplete#enable_at_startup = 1
+let g:deoplete#enable_smart_case = 1
+
+" Tern-specific
+let g:tern_request_timeout = 1
+let g:tern_show_signature_in_pum = '0'
+let g:tern#command = ["tern"]
+let g:tern#arguments = ["--persistent"]
+let g:tern#filetypes = [
+                \ 'jsx',
+                \ 'javascript.jsx',
+                \ 'vue',
+                \ ]
+
+" Complete with <Tab>
+inoremap <silent><expr> <Tab>
+  \ pumvisible() ? "\<C-n>" :
+  \ deoplete#mappings#manual_complete()
