@@ -5,6 +5,17 @@ export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
 export PATH="/usr/local/sbin:$PATH"
 
+# Theme
+ZSH_THEME="robbyrussell"
+
+# Plugins
+plugins=(git git-extras docker gitignore man mvn node python sublime zsh-completions brew common-aliases encode64 osx pip sudo alias-tips zsh-vscode tmux)
+
+# Default editor
+export EDITOR='nvim'
+
+# Source base .zsh
+source $ZSH/oh-my-zsh.sh
 # Stash your environment variables in ~/.localrc. This means they'll stay out
 # of your main dotfiles repository (which may be public, like this one), but
 # you'll have access to them in your scripts.
@@ -15,7 +26,7 @@ fi
 
 # all of our zsh files
 typeset -U config_files
-config_files=($ZSH/**/*.zsh)
+config_files=($DOTFILES/**/*.zsh)
 
 # load the path files
 for file in ${(M)config_files:#*/path.zsh}
@@ -62,15 +73,3 @@ addKeys
 if (( $+commands[nodenv] )); then
   eval "$(nodenv init -)"
 fi
-
-# Theme
-ZSH_THEME="robbyrussell"
-
-# Plugins
-plugins=(git git-extras docker gitignore man mvn node python sublime zsh-completions brew common-aliases encode64 osx pip sudo zsh-syntax-highlighting alias-tips zsh-vscode tmux)
-
-# Default editor
-export EDITOR='nvim'
-
-# Source base .zsh
-source $ZSH/oh-my-zsh.sh
