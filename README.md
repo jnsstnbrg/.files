@@ -6,15 +6,15 @@ Clone this repository
 
 ```sh
 cd ~
-git clone git@github.com:jnsstnbrg/.files.git .files
+git clone git@github.com:jnsstnbrg/dotfiles.git ~/.dotfiles/
 ```
 
 Install
 
 ```sh
-scripts/bootstrap
+~/.dotfiles/install/bootstrap
 ```
 
 ## Thanks
 
-Many thanks to Zach Holman (https://github.com/holman/dotfiles), since it was his that I initally forked.
+Many thanks to Zach Holman (https://github.com/holman/dotfiles), since it was his repository that I initally forked.

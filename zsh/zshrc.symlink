@@ -9,7 +9,7 @@ export PATH="/usr/local/sbin:$PATH"
 ZSH_THEME="robbyrussell"
 
 # Plugins
-plugins=(git git-extras docker gitignore man mvn node python sublime zsh-completions brew common-aliases encode64 osx pip sudo alias-tips zsh-vscode tmux)
+plugins=(docker gitignore man mvn node python sublime zsh-completions brew common-aliases encode64 osx pip sudo alias-tips zsh-vscode tmux zsh-syntax-highlighting)
 
 # Default editor
 export EDITOR='nvim'

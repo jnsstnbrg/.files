@@ -43,6 +43,7 @@
 	f"
 
 	cp = cherry-pick -x
+  nuke = !$DOTFILES/bin/git-nuke
 [color]
 	ui = true
 	diff = true

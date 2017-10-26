@@ -1,0 +1,22 @@
+#!/bin/bash
+#
+# Run all dotfiles installers.
+
+set -e
+
+cd "$(dirname $0)"/..
+
+# Run Homebrew through the Brewfile
+echo "› brew bundle"
+brew bundle
+
+# find the installers and run them iteratively
+installers=()
+while IFS=  read -r -d $'\0'; do
+  installers+=("$REPLY")
+done < <(find . -name install.sh -print0)
+
+for installer in "${installers[@]}"; do
+  echo "Running ${installer}"
+  sh -c ${installer}
+done

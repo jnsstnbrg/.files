@@ -27,7 +27,6 @@ brew "the_silver_searcher"
 brew "tree"
 brew "wget"
 brew "zsh"
-brew "zsh-syntax-highlighting"
 
 # Fonts
 # ----------------------------------------------------------------------------
