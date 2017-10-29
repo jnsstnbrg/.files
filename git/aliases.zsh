@@ -44,6 +44,7 @@ alias ga='git add'
 alias gaa='git add --all'
 alias gapa='git add --patch'
 alias gau='git add --update'
+alias gnuke='$DOTFILES/bin/git-nuke'
 
 alias gb='git branch'
 alias gba='git branch -a'
