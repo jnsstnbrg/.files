@@ -44,7 +44,7 @@ alias ga='git add'
 alias gaa='git add --all'
 alias gapa='git add --patch'
 alias gau='git add --update'
-alias gnuke='$DOTFILES/bin/git-nuke'
+alias gnuke='$DOTFILES/bin/git-nuke't
 
 alias gb='git branch'
 alias gba='git branch -a'
@@ -175,8 +175,8 @@ alias glgg='git log --graph'
 alias glgga='git log --graph --decorate --all'
 alias glgm='git log --graph --max-count=10'
 alias glo='git log --oneline --decorate'
-alias glol="git log --graph --pretty='%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
-alias glola="git log --graph --pretty='%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --all"
+alias glol="git log --graph --pretty='%Cred%h%Creset - %C(yellow)%ad%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --date=format:'%Y-%m-%d %H:%M:%S' --abbrev-commit -20 HEAD"
+alias glola="git log --graph --pretty='%Cred%h%Creset - %C(yellow)%ad%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --date=format:'%Y-%m-%d %H:%M:%S' --abbrev-commit -20 HEAD --all"
 alias glog='git log --oneline --decorate --graph'
 alias gloga='git log --oneline --decorate --graph --all'
 alias glp="_git_log_prettily"
