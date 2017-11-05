@@ -25,6 +25,9 @@ Plug 'carlitux/deoplete-ternjs', { 'do': 'npm install -g tern' }
 " JS doc
 Plug 'heavenshell/vim-jsdoc'
 
+" Surround selection
+Plug 'tpope/vim-surround'
+
 " Git status in gutter
 Plug 'airblade/vim-gitgutter'
 
