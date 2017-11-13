@@ -100,6 +100,17 @@ nnoremap <esc> :noh<return><esc>
 
 " Js doc
 nmap <silent> <C-i> <Plug>(jsdoc)
+
+" Complete with <Tab>
+inoremap <silent><expr> <TAB>
+    \ pumvisible() ? "\<C-n>" :
+    \ <SID>check_back_space() ? "\<TAB>" :
+    \ deoplete#mappings#manual_complete()
+function! s:check_back_space() abort "{{{
+    let col = col('.') - 1
+    return !col || getline('.')[col - 1]  =~ '\s'
+endfunction"}}}
+
 " Allow ECMAScript 6 shorthand syntax.
 let g:jsdoc_enable_es6 = 1
 
@@ -124,8 +135,3 @@ let g:tern#filetypes = [
                 \ 'javascript.jsx',
                 \ 'vue',
                 \ ]
-
-" Complete with <Tab>
-inoremap <silent><expr> <Tab>
-  \ pumvisible() ? "\<C-n>" :
-  \ deoplete#mappings#manual_complete()
