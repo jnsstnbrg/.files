@@ -23,26 +23,6 @@
 	prompt = false
 [diff]
 	tool = vimdiff
-[alias]
-	ls = "!f() { \
-		if [ -z $1 ]; then \
-			git log --pretty=format:\"%C(yellow)%h %ad%Cred%d %Creset%s%Cgreen [%an]\" --decorate --date=format:'%Y-%m-%d %H:%M:%S' -10 HEAD; \
-		else \
-			git log --pretty=format:\"%C(yellow)%h %ad%Cred%d %Creset%s%Cgreen [%an]\" --decorate --date=format:'%Y-%m-%d %H:%M:%S' -$1 HEAD; \
-		fi; \
-	}; \
-	f"
-
-	ll = "!f() { \
-		if [ -z $1 ]; then \
-			git log --pretty=format:\"%C(yellow)%h %ad%Cred%d %Creset%s%Cgreen [%an]\" --decorate --date=short --numstat -10 HEAD; \
-		else \
-			git log --pretty=format:\"%C(yellow)%h %ad%Cred%d %Creset%s%Cgreen [%an]\" --decorate --date=short --numstat -$1 HEAD; \
-		fi; \
-	}; \
-	f"
-
-	cp = cherry-pick -x
 [color]
 	ui = true
 	diff = true
