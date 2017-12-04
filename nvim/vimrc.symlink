@@ -38,6 +38,9 @@ Plug 'othree/yajs.vim'
 " nvim color schemes
 Plug 'rafi/awesome-vim-colorschemes'
 
+" Vue syntax
+Plug 'posva/vim-vue'
+
 " Initialize plugin system
 call plug#end()
 
@@ -135,3 +138,6 @@ let g:tern#filetypes = [
                 \ 'javascript.jsx',
                 \ 'vue',
                 \ ]
+
+" Vue syntax
+let g:vue_disable_pre_processors=1
