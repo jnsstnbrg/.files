@@ -44,7 +44,7 @@ alias ga='git add'
 alias gaa='git add --all'
 alias gapa='git add --patch'
 alias gau='git add --update'
-alias gnuke='$DOTFILES/bin/git-nuke't
+alias gnuke='$DOTFILES/bin/git-nuke'
 
 alias gb='git branch'
 alias gba='git branch -a'
@@ -158,7 +158,7 @@ alias gpsup='git push --set-upstream origin $(git_current_branch)'
 
 alias ghh='git help'
 
-alias gignore='git update-index --assume-unchanged'
+alias gignore='get update-index --assume-unchanged'
 alias gignored='git ls-files -v | grep "^[[:lower:]]"'
 alias git-svn-dcommit-push='git svn dcommit && git push github master:svntrunk'
 compdef _git git-svn-dcommit-push=git
@@ -213,6 +213,8 @@ alias grt='cd $(git rev-parse --show-toplevel || echo ".")'
 alias gru='git reset --'
 alias grup='git remote update'
 alias grv='git remote -v'
+
+alias grev='git revert'
 
 alias gsb='git status -sb'
 alias gsd='git svn dcommit'
