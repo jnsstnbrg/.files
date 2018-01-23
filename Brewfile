@@ -76,6 +76,7 @@ cask "quicklook-json"
 cask "1password"
 
 # Other
+cask "iterm2"
 cask "keepingyouawake"
 cask "skype"
 cask "slack"
