@@ -12,7 +12,7 @@ Plug 'mhinz/vim-startify'
 
 " Neovim
 Plug 'ctrlpvim/ctrlp.vim'
-Plug 'mileszs/ack.vim'
+Plug 'numkil/ag.nvim'
 
 " JS Linting
 Plug 'w0rp/ale'
@@ -27,7 +27,6 @@ Plug 'carlitux/deoplete-ternjs', { 'do': 'npm install -g tern' }
 
 " JS doc
 Plug 'heavenshell/vim-jsdoc'
-
 " Surround selection
 Plug 'tpope/vim-surround'
 
@@ -69,7 +68,6 @@ set updatecount=0           " disable swap files
 set nobackup
 set noswapfile
 
-set grepprg=ack\ -a         " use ack when searching with :grep
 set hlsearch                " highlight all results
 set incsearch               " but do highlight as you type your search.
 set ignorecase              " make searches case-insensitive...
@@ -141,6 +139,9 @@ let g:tern#filetypes = [
                 \ 'javascript.jsx',
                 \ 'vue',
                 \ ]
+
+" ag
+let g:ag_working_path_mode="r"
 
 " Vue syntax
 let g:vue_disable_pre_processors=1
