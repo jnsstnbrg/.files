@@ -43,6 +43,9 @@ Plug 'rafi/awesome-vim-colorschemes'
 " Vue syntax
 Plug 'posva/vim-vue'
 
+" AWS syntax
+Plug 'https://github.com/m-kat/aws-vim'
+
 " Initialize plugin system
 call plug#end()
 
@@ -145,3 +148,5 @@ let g:ag_working_path_mode="r"
 
 " Vue syntax
 let g:vue_disable_pre_processors=1
+
+com! FormatJSON %!python -m json.tool
