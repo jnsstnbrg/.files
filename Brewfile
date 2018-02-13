@@ -10,6 +10,7 @@ tap "homebrew/bundle"
 # ----------------------------------------------------------------------------
 brew "ack"
 brew "awscli"
+brew "fzf"
 brew "git"
 brew "gnu-sed"
 brew "go"
