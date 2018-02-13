@@ -7,54 +7,180 @@ endfunction
 " - Avoid using standard Vim directory names like 'plugin'
 call plug#begin('~/.vim/plugged')
 
-" Startup
-Plug 'mhinz/vim-startify'
-
-" Neovim
-Plug 'ctrlpvim/ctrlp.vim'
-Plug 'numkil/ag.nvim'
-
-" JS Linting
-Plug 'w0rp/ale'
-
-" JS editorconfig
-Plug 'editorconfig/editorconfig-vim'
-
-" JS compilation
+Plug 'Raimondi/delimitMate'
 Plug 'Shougo/deoplete.nvim', { 'do': function('DoRemote') }
-Plug 'ternjs/tern_for_vim', { 'do': 'npm install' }
-Plug 'carlitux/deoplete-ternjs', { 'do': 'npm install -g tern' }
-
-" JS doc
-Plug 'heavenshell/vim-jsdoc'
-" Surround selection
-Plug 'tpope/vim-surround'
-
-" Git status in gutter
 Plug 'airblade/vim-gitgutter'
-
-" Js syntax highlighting
+Plug 'briancollins/vim-jst'
+Plug 'cakebaker/scss-syntax.vim'
+Plug 'carlitux/deoplete-ternjs', { 'do': 'npm install -g tern' }
+Plug 'editorconfig/editorconfig-vim'
+Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' }
+Plug 'groenewege/vim-less'
+Plug 'hail2u/vim-css3-syntax'
+Plug 'heavenshell/vim-jsdoc'
+Plug 'henrik/vim-qargs'
+Plug 'junegunn/fzf.vim'
+Plug 'mhinz/vim-startify'
+Plug 'mileszs/ack.vim'
 Plug 'othree/es.next.syntax.vim'
 Plug 'othree/yajs.vim'
-
-" nvim color schemes
-Plug 'rafi/awesome-vim-colorschemes'
-
-" Vue syntax
 Plug 'posva/vim-vue'
-
-" AWS syntax
-Plug 'https://github.com/m-kat/aws-vim'
+Plug 'rafi/awesome-vim-colorschemes'
+Plug 'ternjs/tern_for_vim', { 'do': 'npm install' }
+Plug 'tomtom/tcomment_vim'
+Plug 'tpope/vim-endwise'
+Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-rhubarb'
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-unimpaired'
+Plug 'tpope/vim-vinegar'
+Plug 'w0rp/ale'
+Plug 'zchee/deoplete-go', { 'do': 'make' }
 
 " Initialize plugin system
 call plug#end()
 
+" Leave the past behind
+set nocompatible
+
 " True color support
 set termguicolors
 
+" Color scheme
 colorscheme gruvbox
 set background=dark
 
+" Set leader
+let mapleader = ","
+
+" Make copy operations work with the clipboard
+set clipboard=unnamed
+
+" Plugs
+" ===========================================================================
+
+" Ag {{{
+if executable('ag')
+  set grepprg=ag\ --nogroup\ --nocolor
+  let g:ackprg = 'ag --vimgrep --nocolor --column'
+endif
+"
+" Search for the word under the cursor
+nmap <M-k> :Ack! "\b<cword>\b" <CR>
+" }}}
+
+" Ale {{{
+let g:ale_sign_error = '>>'
+let g:ale_sign_warning = '--'
+
+" let g:ale_linters = {'vue': ['stylelint', 'eslint']}
+" }}}
+
+" Deoplete {{{
+let g:deoplete#enable_at_startup = 1
+let g:deoplete#enable_smart_case = 1
+
+" Tern-specific
+let g:tern_request_timeout = 1
+let g:tern_show_signature_in_pum = '0'
+let g:tern#command = ["tern"]
+let g:tern#arguments = ["--persistent"]
+let g:tern#filetypes = [
+                \ 'jsx',
+                \ 'javascript.jsx',
+                \ 'vue',
+                \ ]" Complete with <Tab>
+inoremap <silent><expr> <Tab>
+  \ pumvisible() ? "\<C-n>" :
+  \ deoplete#mappings#manual_complete()
+
+" Recommended settings
+" set completeopt+=noinsert
+" set completeopt+=noselect
+" }}}
+
+" fzf {{{
+set rtp+=/usr/local/opt/fzf
+
+nmap <C-p> :Files<CR>
+" }}}
+
+" GitGutter {{{
+" Make GitGutter work in NeoVim.
+let g:gitgutter_async = 1
+let g:gitgutter_sign_removed_first_line = "^_"
+" }}}
+
+" JSDoc {{{
+" Map to CTRL-L
+nmap <silent> <C-l> <Plug>(jsdoc)
+" Allow ECMAScript 6 shorthand syntax.
+let g:jsdoc_enable_es6 = 1
+" }}}
+
+" Startify {{{
+" Don't change to the file's directory
+let g:startify_change_to_dir = 0
+" Disable random quotes header
+let g:startify_custom_header = []
+" Don't split when opening a file
+autocmd User Startified setlocal buftype=
+" }}}
+
+" Go {{{
+" autocmd FileType go nmap <leader>r <Plug>(go-run)
+" autocmd FileType go nmap <leader>b <Plug>(go-build)
+" autocmd FileType go nmap <leader>t <Plug>(go-test)
+" autocmd FileType go nmap <leader>c <Plug>(go-coverage)
+" }}}
+
+" Vue {{{
+let g:vue_disable_pre_processors = 1
+" }}}
+
+" Built-in settings
+" ===========================================================================
+
+" Substitution {{{
+set inccommand=nosplit
+" }}}
+
+" Search {{{
+set hlsearch                " highlight all results
+set incsearch               " but do highlight as you type your search.
+set ignorecase              " make searches case-insensitive...
+set smartcase               " ... unless they contain at least one capital letter
+set gdefault                " have :s///g flag by default on"
+" }}}
+
+" Guides {{{
+set number                  " show line numbers
+set colorcolumn=80          " ruler at 80 chars width
+set history=200             " remember a lot of stuff
+set ruler                   " Always show info along bottom.
+" }}}
+
+" Files {{{
+set autoread                " auto-reload files changed on disk
+set updatecount=0           " disable swap files
+set nobackup
+set noswapfile
+" }}}
+
+" Persistent undo {{{
+set undodir=/tmp/vim/undo
+set hidden                  " Don't unload hidden buffers
+set undofile                " Save undos to file
+set undolevels=1000
+set undoreload=10000
+
+" Create undo directory if it's missing
+if !isdirectory(expand(&undodir))
+    call mkdir(expand(&undodir), "p")
+endif
+" }}}
+
+" Indentation {{{
 set cindent
 set autoindent              " auto-indent
 set tabstop=2               " tab spacing
@@ -64,23 +190,44 @@ set shiftround              " always indent/outdent to the nearest tabstop
 set expandtab               " use spaces instead of tabs
 set smarttab                " use tabs at the start of a line, spaces elsewherei
 set nowrap
-set number
+" }}}
 
-set autoread                " auto-reload files changed on disk
-set updatecount=0           " disable swap files
-set nobackup
-set noswapfile
+" Code folding {{{
+set foldmarker={{{,}}}
+set foldenable              " enable folding
+set foldmethod=marker
+set foldnestmax=10          " maximum nesting of folds
+set foldlevelstart=0        " folds start off closed
+set foldlevel=0
+" }}}
 
-set hlsearch                " highlight all results
-set incsearch               " but do highlight as you type your search.
-set ignorecase              " make searches case-insensitive...
-set smartcase               " ... unless they contain at least one capital letter
-set gdefault                " have :s///g flag by default on"
+" Compilation {{{
+autocmd FileType ruby map <F9> :w<CR>:!rubocop %<CR>
+autocmd FileType javascript map <F9> :w<CR>:!eslint %<CR>
+" }}}
 
-set inccommand=nosplit
-set clipboard=unnamed
+" Netrw {{{
+" 0: One file per line
+" 1: One file per line with file size and time stamp
+" 2: Files in columns
+" 3: Tree
+let g:netrw_liststyle=1
+let g:netrw_localrmdir="rm -r" " Allow removal of directories that aren't empty
+let g:netrw_altv=1            " Split to the right
+" }}}
 
-set wildignorecase
+" Omnifunc {{{
+filetype plugin on
+set omnifunc=syntaxcomplete#Complete
+" }}}
+
+" Miscellaneous {{{
+" Leader mappings
+nmap <Leader>n :cnext<CR>
+nmap <Leader>p :cprev<CR>
+
+" Pressing ESC removes highlighting
+nnoremap <esc> :noh<return><esc>
 
 " Don't lose selection when shifting left or right
 xnoremap <  <gv
@@ -118,35 +265,55 @@ function! s:check_back_space() abort "{{{
     return !col || getline('.')[col - 1]  =~ '\s'
 endfunction"}}}
 
-" Allow ECMAScript 6 shorthand syntax.
-let g:jsdoc_enable_es6 = 1
-
 " Trim trailing whitespace on save
 autocmd BufWritePre * :%s/\s\+$//e
 
 let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlP'
 
-let g:netrw_localrmdir="rm -r" " Allow removal of directories that aren't empty
-
-let g:deoplete#enable_at_startup = 1
-let g:deoplete#enable_smart_case = 1
-
-" Tern-specific
-let g:tern_request_timeout = 1
-let g:tern_show_signature_in_pum = '0'
-let g:tern#command = ["tern"]
-let g:tern#arguments = ["--persistent"]
-let g:tern#filetypes = [
-                \ 'jsx',
-                \ 'javascript.jsx',
-                \ 'vue',
-                \ ]
-
-" ag
-let g:ag_working_path_mode="r"
-
-" Vue syntax
-let g:vue_disable_pre_processors=1
-
 com! FormatJSON %!python -m json.tool
+
+" Auto-create parent directories when expanding file
+" Ref: http://stackoverflow.com/a/4294176/517528
+function! s:MkNonExDir(file, buf)
+    if empty(getbufvar(a:buf, '&buftype')) && a:file!~#'\v^\w+\:\/'
+        let dir=fnamemodify(a:file, ':h')
+        if !isdirectory(dir)
+            call mkdir(dir, 'p')
+        endif
+    endif
+endfunction
+augroup BWCCreateDir
+    autocmd!
+    autocmd BufWritePre * :call s:MkNonExDir(expand('<afile>'), +expand('<abuf>'))
+augroup END
+
+" Automatically close scratch window when finishing a completion or leaving
+" insert mode
+autocmd InsertLeave,CompleteDone * if pumvisible() == 0 | pclose | endif
+
+" Invert <Tab> behavior when pressing <Shift><Tab>
+function! InsertTabWrapper()
+  if pumvisible()
+    return "\<c-n>"
+  endif
+  let col = col('.') - 1
+  if !col || getline('.')[col - 1] !~ '\k'
+    return "\<tab>"
+  else
+    return "\<c-x>\<c-o>"
+  endif
+endfunction
+inoremap <expr><tab> InsertTabWrapper()
+inoremap <expr><s-tab> pumvisible()?"\<c-p>":"\<c-d>"
+
+" Show syntax highlighting groups for word under cursor
+" Ref: http://vimcasts.org/episodes/creating-colorschemes-for-vim/
+nmap <Leader>c :call <SID>SynStack()<CR>
+function! <SID>SynStack()
+  if !exists("*synstack")
+    return
+  endif
+  echo map(synstack(line('.'), col('.')), 'synIDattr(v:val, "name")')
+endfunc
+" }}}
