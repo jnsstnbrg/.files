@@ -1,5 +1,7 @@
 #!/bin/bash
 
+pip3 install neovim
+
 mkdir -p ~/.config/nvim/
 
 cat > ~/.config/nvim/init.vim << EOF
