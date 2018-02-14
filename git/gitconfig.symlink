@@ -5,6 +5,7 @@
 [core]
 	autocrlf = false
 	pager =
+	excludesfile = /Users/jonasstenberg/.gitignore
 [http]
 	sslVerify = false
 [push]
