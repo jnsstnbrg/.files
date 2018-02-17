@@ -104,7 +104,8 @@ inoremap <silent><expr> <Tab>
 " fzf {{{
 set rtp+=/usr/local/opt/fzf
 
-nmap <C-p> :Files<CR>
+nnoremap <c-p> :GFiles<cr>
+" nmap <C-p> :Files<CR>
 " }}}
 
 " GitGutter {{{
