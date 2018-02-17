@@ -5,6 +5,12 @@ export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
 export PATH="/usr/local/sbin:$PATH"
 
+# Go
+export GOPATH=$HOME/Develop/Go
+export GOROOT=/usr/local/opt/go/libexec
+export PATH=$PATH:$GOPATH/bin
+export PATH=$PATH:$GOROOT/bin
+
 # Theme
 ZSH_THEME="robbyrussell"
 
