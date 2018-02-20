@@ -104,8 +104,11 @@ inoremap <silent><expr> <Tab>
 " fzf {{{
 set rtp+=/usr/local/opt/fzf
 
-nnoremap <c-p> :GFiles<cr>
-" nmap <C-p> :Files<CR>
+" Set environment variable
+let $FZF_DEFAULT_COMMAND = 'ag --hidden --ignore .git -g ""'
+
+" nnoremap <c-p> :GFiles<cr>
+nmap <C-p> :Files<CR>
 " }}}
 
 " GitGutter {{{
