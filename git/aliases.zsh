@@ -40,6 +40,8 @@ function work_in_progress() {
 
 alias g='git'
 
+alias gbrag='git shortlog -n -s --all'
+
 alias ga='git add'
 alias gaa='git add --all'
 alias gapa='git add --patch'
