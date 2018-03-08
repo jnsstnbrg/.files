@@ -1,5 +1,5 @@
 # Vim
-alias vi="nvim"
+alias vim="nvim"
 
 # Dir
 alias dev="cd ~/Develop/"
@@ -8,7 +8,7 @@ alias ikea="cd ~/Develop/Work/IKEA-M2/"
 alias index_service="cd ~/Develop/Work/IKEA-M2/index-service/"
 alias sresults="cd ~/Develop/Work/IKEA-M2/search-results"
 alias sadmin="cd ~/Develop/Work/IKEA-M2/search-admin"
-alias sdeploy="cd ~/Develop/Go/src/github.com/mammutmw/search-deploy"
+alias sdeploy="cd ~/Develop/Go/src/search-deploy"
 
 # Node
 alias nodenv_set="sh ~/Develop/Work/Jayway/nodenv/nodenv.sh"
