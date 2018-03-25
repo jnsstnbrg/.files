@@ -38,8 +38,9 @@ Plug 'w0rp/ale'
 Plug 'zchee/deoplete-go', { 'do': 'make' }
 Plug 'zchee/deoplete-jedi'
 Plug 'Vimjas/vim-python-pep8-indent'
+Plug 'sheerun/vim-polyglot'
 
-" Initialize plugin system
+" Initializu plugin system
 call plug#end()
 
 " Leave the past behind
@@ -109,6 +110,9 @@ let $FZF_DEFAULT_COMMAND = 'ag --hidden --ignore .git -g ""'
 
 " nnoremap <c-p> :GFiles<cr>
 nmap <C-p> :Files<CR>
+nnoremap <leader>f :BLines<cr>
+nnoremap <leader>g :Lines<cr>
+nnoremap <leader>c :Commits<cr>
 " }}}
 
 " GitGutter {{{
@@ -136,6 +140,7 @@ autocmd User Startified setlocal buftype=
 " Go {{{
 autocmd FileType go nmap <leader>r <Plug>(go-run)
 autocmd FileType go nmap <leader>b <Plug>(go-build)
+autocmd FileType go nmap <leader>d <Plug>(go-def)
 " autocmd FileType go nmap <leader>t <Plug>(go-test)
 " autocmd FileType go nmap <leader>c <Plug>(go-coverage)
 let g:go_fmt_command = "goimports"
@@ -176,6 +181,13 @@ set autoread                " auto-reload files changed on disk
 set updatecount=0           " disable swap files
 set nobackup
 set noswapfile
+
+" enable functional autosave
+augroup autoSaveAndRead
+    autocmd!
+    autocmd TextChanged,InsertLeave,FocusLost * silent! wall
+    autocmd CursorHold * silent! checktime
+augroup END
 " }}}
 
 " Persistent undo {{{
@@ -236,6 +248,9 @@ set omnifunc=syntaxcomplete#Complete
 " Leader mappings
 nmap <Leader>n :cnext<CR>
 nmap <Leader>p :cprev<CR>
+nnoremap <silent> <leader>s :syntax sync fromstart<CR>
+
+autocmd FileType markdown syntax sync fromstart
 
 " Pressing ESC removes highlighting
 nnoremap <esc> :noh<return><esc>
@@ -318,13 +333,6 @@ endfunction
 inoremap <expr><tab> InsertTabWrapper()
 inoremap <expr><s-tab> pumvisible()?"\<c-p>":"\<c-d>"
 
-" Show syntax highlighting groups for word under cursor
-" Ref: http://vimcasts.org/episodes/creating-colorschemes-for-vim/
-nmap <Leader>c :call <SID>SynStack()<CR>
-function! <SID>SynStack()
-  if !exists("*synstack")
-    return
-  endif
-  echo map(synstack(line('.'), col('.')), 'synIDattr(v:val, "name")')
-endfunc
+" Automatically equalize splits when Vim is resized
+autocmd VimResized * wincmd =
 " }}}
