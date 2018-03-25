@@ -28,6 +28,7 @@ brew "the_silver_searcher"
 brew "tree"
 brew "wget"
 brew "zsh"
+brew "fd"
 
 # Fonts
 # ----------------------------------------------------------------------------
