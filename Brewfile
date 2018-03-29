@@ -76,6 +76,7 @@ cask "quicklook-json"
 
 # Security
 cask "1password"
+cask "nordvpn"
 
 # Other
 cask "iterm2"
