@@ -11,7 +11,7 @@ git clone git@github.com:jnsstnbrg/dotfiles.git ~/.dotfiles/
 Install
 
 ```sh
-~/.dotfiles/install/bootstrap
+cd ~/.dotfiles/ && ./install/bootstrap
 ```
 
 ## Thanks
