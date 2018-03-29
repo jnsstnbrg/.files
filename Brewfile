@@ -25,21 +25,19 @@ brew "nodenv"
 brew "rbenv"
 brew "ruby-build"
 brew "the_silver_searcher"
+brew "tmux"
 brew "tree"
 brew "wget"
-brew "zsh"
 brew "fd"
 
 # Fonts
 # ----------------------------------------------------------------------------
 
 # Monospace
-cask "font-droid-sans-mono"
 cask "font-fira-code"
 cask "font-hack"
 cask "font-hasklig"
 cask "font-inconsolata"
-cask "font-interface"
 cask "font-metropolis"
 cask "font-source-code-pro"
 cask "font-ubuntu"
@@ -66,7 +64,7 @@ cask "vlc"
 cask "sketch"
 
 # QuickLook plugins
-cask "betterzipql"
+cask "betterzip"
 cask "qlcolorcode"
 cask "qlimagesize"
 cask "qlmarkdown"
