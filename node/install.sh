@@ -1,6 +1,25 @@
 #!/bin/bash
 
-nodenv global 8.4.0 && nodenv rehash
+nodes=('8.9.4')
+
+# Node.js Installation
+install_node () {
+  if hash nodenv 2>/dev/null; then
+    for node in "${nodes[@]}"; do
+      if [ "$(nodenv versions | grep -Eio $node)" == $node ]; then
+        printf "\e[0;32m       * node.js v$node is already installed...\n\e[0m"
+      fi
+
+      if [ "$(nodenv versions | grep -Eio $node)" == "" ]; then
+        nodenv install "$node"
+        nodenv global "$node"
+        nodenv rehash
+      fi
+    done
+  fi
+}
+
+install_node
 
 if test ! $(which tern); then
   npm install tern -g
