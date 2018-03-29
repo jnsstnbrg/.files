@@ -76,9 +76,5 @@ addKeys(){
 
 addKeys
 
-if (( $+commands[nodenv] )); then
-  eval "$(nodenv init -)"
-fi
-
 # Load rbenv automatically by appending
 eval "$(rbenv init -)"
