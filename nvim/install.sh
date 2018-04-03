@@ -11,3 +11,4 @@ source ~/.vimrc
 EOF
 
 nvim +PlugInstall +qall
+nvim +GoInstallBinaries +qall
