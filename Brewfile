@@ -64,6 +64,7 @@ cask "calibre"
 cask "spotify"
 cask "vlc"
 cask "sketch"
+cask "beamer"
 
 # QuickLook plugins
 cask "betterzip"
