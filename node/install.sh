@@ -25,10 +25,6 @@ if test ! $(which tern); then
   npm install tern -g
 fi
 
-if test ! $(which tldr); then
-  npm install tldr -g
-fi
-
 if test ! $(which sam); then
   npm install aws-sam-local -g
 fi
