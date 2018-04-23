@@ -6,10 +6,19 @@ export LANG=en_US.UTF-8
 export PATH="/usr/local/sbin:$PATH"
 
 # Theme
-ZSH_THEME="robbyrussell"
+ZSH_THEME="jnsstnbrg"
 
 # Plugins
-plugins=(docker gitignore man mvn node python sublime zsh-completions brew common-aliases encode64 osx pip sudo alias-tips zsh-vscode tmux zsh-syntax-highlighting)
+plugins=(
+  common-aliases
+  docker
+  encode64
+  gitignore
+  osx
+  sublime
+  tmux
+  zsh-syntax-highlighting
+)
 
 # Default editor
 export EDITOR='nvim'
