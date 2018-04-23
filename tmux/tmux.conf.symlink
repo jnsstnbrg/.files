@@ -1,0 +1,75 @@
+set-option -g default-terminal "screen-256color"
+
+# Change C-b binding to C-a
+set -g prefix C-a
+unbind-key C-b
+bind-key C-a send-prefix
+
+# Fixes https://github.com/tmux/tmux/issues/543#issuecomment-248980734
+set -g default-shell $SHELL
+set -g default-command "reattach-to-user-namespace -l ${SHELL}"
+
+# Automatically set window title
+setw -g automatic-rename on
+set -g set-titles on
+
+setw -g mouse on
+setw -g mode-keys vi
+setw -g monitor-activity on
+set -g visual-activity on
+set -g history-limit 10000
+
+set -ga terminal-overrides ",xterm-256color:Tc"
+
+# https://github.com/neovim/neovim/issues/2017
+set -s escape-time 0
+
+# Window/pane first index (default: 0)
+set -g base-index 1
+setw -g pane-base-index 1
+
+# Vim style pane selection
+bind h select-pane -L
+bind j select-pane -D
+bind k select-pane -U
+bind l select-pane -R
+
+# Use Alt-vim keys without prefix key to switch panes
+bind -n M-h select-pane -L
+bind -n M-j select-pane -D
+bind -n M-k select-pane -U
+bind -n M-l select-pane -R
+
+# Use Alt-arrow keys without prefix key to switch panes
+bind -n M-Left select-pane -L
+bind -n M-Right select-pane -R
+bind -n M-Up select-pane -U
+bind -n M-Down select-pane -D
+
+# Faster switching between windows
+bind -r C-h select-window -t :-
+bind -r C-l select-window -t :+
+# bind -n S-Left previous-window
+# bind -n S-Right next-window
+
+# Resize panes
+bind-key J resize-pane -D 5
+bind-key K resize-pane -U 5
+bind-key H resize-pane -L 5
+bind-key L resize-pane -R 5
+
+# Kill window/server/session
+bind X confirm kill-window
+bind k confirm kill-session
+bind K confirm kill-server
+
+# Reload ~/.tmux.conf
+bind r source-file ~/.tmux.conf
+
+# Plugins
+set -g @plugin 'tmux-plugins/tpm'
+set -g @plugin 'nhdaly/tmux-scroll-copy-mode'
+set -g @plugin 'tmux-plugins/tmux-yank'
+
+# Run plugin manager
+run '~/.tmux/plugins/tpm/tpm'

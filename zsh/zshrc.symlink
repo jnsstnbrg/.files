@@ -16,7 +16,6 @@ plugins=(
   gitignore
   osx
   sublime
-  tmux
   zsh-syntax-highlighting
 )
 
