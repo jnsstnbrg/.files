@@ -13,8 +13,14 @@ set -g default-command "reattach-to-user-namespace -l ${SHELL}"
 setw -g automatic-rename on
 set -g set-titles on
 
+# Mouse tweaks
 setw -g mouse on
 setw -g mode-keys vi
+
+# Fix copying behaviour
+set-option -g default-command "reattach-to-user-namespace -l zsh"
+bind-key    -T copy-mode-vi MouseDragEnd1Pane send-keys -X copy-pipe-and-cancel "reattach-to-user-namespace pbcopy"
+
 setw -g monitor-activity on
 set -g visual-activity on
 set -g history-limit 10000
