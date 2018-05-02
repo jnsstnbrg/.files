@@ -5,6 +5,10 @@ export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
 export PATH="/usr/local/sbin:$PATH"
 
+# Add at the top/bottom to debug start-up time:
+# zmodload zsh/zprof
+# zprof
+
 # Theme
 ZSH_THEME="jnsstnbrg"
 
@@ -50,8 +54,13 @@ do
 done
 
 # initialize autocomplete here, otherwise functions won't be loaded
-autoload -U compinit
-compinit
+#autoload -Uz compinit
+autoload -Uz compinit
+if [ $(date +'%j') != $(stat -f '%Sm' -t '%j' ~/.zcompdump) ]; then
+  compinit
+else
+  compinit -C
+fi
 
 # load every completion after autocomplete loads
 for file in ${(M)config_files:#*/completion.zsh}
