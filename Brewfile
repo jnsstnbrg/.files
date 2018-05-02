@@ -70,7 +70,6 @@ cask "sketch"
 cask "beamer"
 
 # QuickLook plugins
-cask "betterzip"
 cask "qlcolorcode"
 cask "qlimagesize"
 cask "qlmarkdown"
