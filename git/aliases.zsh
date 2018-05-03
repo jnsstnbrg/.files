@@ -234,6 +234,7 @@ alias gsu='git submodule update'
 
 alias gts='git tag -s'
 alias gtv='git tag | sort -V'
+alias gt='git tag -l --sort=-v:refname'
 
 alias gunignore='git update-index --no-assume-unchanged'
 alias gunwip='git log -n 1 | grep -q -c "\-\-wip\-\-" && git reset HEAD~1'
