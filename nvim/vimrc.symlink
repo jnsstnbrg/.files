@@ -54,7 +54,8 @@ colorscheme gruvbox
 set background=dark
 
 " Set leader
-let mapleader = ","
+let mapleader="\<Space>"
+let maplocalleader="\\"
 
 " Make copy operations work with the clipboard
 set clipboard=unnamed
@@ -110,9 +111,6 @@ let $FZF_DEFAULT_COMMAND = 'ag --hidden --ignore .git -g ""'
 
 " nnoremap <c-p> :GFiles<cr>
 nmap <C-p> :Files<CR>
-nnoremap <leader>f :BLines<cr>
-nnoremap <leader>g :Lines<cr>
-nnoremap <leader>c :Commits<cr>
 " }}}
 
 " GitGutter {{{
@@ -247,12 +245,21 @@ set omnifunc=syntaxcomplete#Complete
 " }}}
 
 " Miscellaneous {{{
+
 " Leader mappings
-nmap <Leader>n :cnext<CR>
-nmap <Leader>p :cprev<CR>
+nnoremap <Leader>f :BLines<CR>
+nnoremap <Leader>g :Lines<CR>
+nnoremap <Leader>c :Commits<CR>
+nnoremap <Leader>w :write<CR>
+nnoremap <Leader>q :quit<CR>
+" <Leader>r -- Cycle through relativenumber + number, number (only), and no
+" numbering (mnemonic: relative).
 nnoremap <silent> <leader>s :syntax sync fromstart<CR>
 
 autocmd FileType markdown syntax sync fromstart
+
+" Search and replace
+nnoremap c* *Ncgn
 
 " Pressing ESC removes highlighting
 nnoremap <esc> :noh<return><esc>
