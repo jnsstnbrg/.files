@@ -7,6 +7,9 @@ alias nodenv_set="sh ~/Develop/Work/Jayway/nodenv/nodenv.sh"
 # IP addresses
 alias ips="ifconfig -a | grep -o 'inet6\? \(addr:\)\?\s\?\(\(\([0-9]\+\.\)\{3\}[0-9]\+\)\|[a-fA-F0-9:]\+\)' | awk '{ sub(/inet6? (addr:)? ?/, \"\"); print }'"
 
+# Curl timer
+alias curltime="curl -w \"@${DOTFILES}/bin/curl-format.txt\" -o /dev/null -s"
+
 # Show active network interfaces
 alias ifactive="ifconfig | pcregrep -M -o '^[^\t:]+:([^\n]|\n\t)*status: active'"
 
