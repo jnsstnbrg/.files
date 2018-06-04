@@ -20,3 +20,6 @@ for app in ${apps[*]}; do
     echo "$app already exists in Dock"
   fi
 done
+
+echo "› add login-script"
+sudo defaults write com.apple.loginwindow LoginHook ${DOTFILES}/macos/login_script.sh
