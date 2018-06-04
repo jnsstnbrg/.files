@@ -23,3 +23,9 @@ done
 
 echo "› add login-script"
 sudo defaults write com.apple.loginwindow LoginHook ${DOTFILES}/macos/login_script.sh
+
+echo "› add symlink to iCloud"
+ln -s ~/Library/Mobile\ Documents/com\~apple\~CloudDocs ~/iCloud
+
+echo "› add symlink to ~/.ssh from iCloud"
+ln -s ~/iCloud/.ssh ~
