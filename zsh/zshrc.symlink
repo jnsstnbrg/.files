@@ -10,7 +10,7 @@ export PATH="/usr/local/sbin:$PATH"
 # zprof
 
 # Theme
-ZSH_THEME="jnsstnbrg"
+ZSH_THEME="robbyrussell"
 
 # Plugins
 plugins=(
