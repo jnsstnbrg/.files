@@ -26,6 +26,9 @@ defaults write com.apple.BluetoothAudioAgent "Apple Bitpool Min (editable)" -int
 defaults write bluetoothaudiod "Enable AAC codec" -bool true
 defaults write bluetoothaudiod "AAC Bitrate" 320
 
+# Hide scrollbar when not used
+defaults write com.apple.Terminal AppleShowScrollBars -string WhenScrolling
+
 # Always show scrollbars
 defaults write NSGlobalDomain AppleShowScrollBars -string "Always"
 
