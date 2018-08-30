@@ -20,6 +20,7 @@ install_node () {
 }
 
 install_node
+eval "$(nodenv init -)"
 
 if test ! $(which tern); then
   npm install tern -g
