@@ -6,7 +6,8 @@ if [[ ! -d ~/.tmux/plugins/tpm ]]; then
 fi
 
 for filename in ${DOTFILES}/tmux/projects/*; do
+  mkdir -p ~/.config/tmuxinator
   if [[ ! -f ~/.config/tmuxinator/${filename##*/} ]]; then
-    ln -s ${filename} ~/.config/tmuxinator
+    ln -s ${filename} ~/.config/tmuxinator/${filename##*/}
   fi
 done
