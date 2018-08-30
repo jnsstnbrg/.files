@@ -8,7 +8,7 @@ endfunction
 call plug#begin('~/.vim/plugged')
 
 Plug 'Raimondi/delimitMate'
-Plug 'Shougo/deoplete.nvim', { 'do': function('DoRemote') }
+Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'airblade/vim-gitgutter'
 Plug 'briancollins/vim-jst'
 Plug 'cakebaker/scss-syntax.vim'
@@ -38,6 +38,7 @@ Plug 'zchee/deoplete-jedi'
 
 " Go
 Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' }
+Plug 'mdempsky/gocode', { 'rtp': 'vim', 'do': '~/.vim/plugged/gocode/vim/symlink.sh' }
 Plug 'zchee/deoplete-go', { 'do': 'make'}
 
 " Python
@@ -146,9 +147,34 @@ autocmd User Startified setlocal buftype=
 autocmd FileType go nmap <leader>r <Plug>(go-run)
 autocmd FileType go nmap <leader>b <Plug>(go-build)
 autocmd FileType go nmap <leader>d <Plug>(go-def)
-" autocmd FileType go nmap <leader>t <Plug>(go-test)
-" autocmd FileType go nmap <leader>c <Plug>(go-coverage)
+
+autocmd FileType go nmap <leader>gt :GoDeclsDir<cr>
+
+" Run goimports when running gofmt
 let g:go_fmt_command = "goimports"
+" Show type information
+let g:go_auto_type_info = 1
+" Enable completing of go pointers
+let g:deoplete#sources#go#pointer = 1
+
+" Enable syntax highlighting per default
+let g:go_highlight_types = 1
+let g:go_highlight_fields = 1
+let g:go_highlight_functions = 1
+let g:go_highlight_methods = 1
+let g:go_highlight_structs = 1
+let g:go_highlight_operators = 1
+let g:go_highlight_build_constraints = 1
+let g:go_highlight_extra_types = 1
+
+" Highlight variable uses
+let g:go_auto_sameids = 1
+
+" Add the failing test name to the output of :GoTest
+let g:go_test_show_name = 1
+
+" Set whether the JSON tags should be snakecase or camelcase.
+let g:go_addtags_transform = "camelcase"
 " }}}
 
 " Python {{{
