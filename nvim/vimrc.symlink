@@ -14,7 +14,6 @@ Plug 'briancollins/vim-jst'
 Plug 'cakebaker/scss-syntax.vim'
 Plug 'carlitux/deoplete-ternjs', { 'do': 'npm install -g tern' }
 Plug 'editorconfig/editorconfig-vim'
-Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' }
 Plug 'groenewege/vim-less'
 Plug 'hail2u/vim-css3-syntax'
 Plug 'heavenshell/vim-jsdoc'
@@ -35,8 +34,11 @@ Plug 'tpope/vim-surround'
 Plug 'tpope/vim-unimpaired'
 Plug 'tpope/vim-vinegar'
 Plug 'w0rp/ale'
-Plug 'zchee/deoplete-go', { 'do': 'make' }
 Plug 'zchee/deoplete-jedi'
+
+" Go
+Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' }
+Plug 'zchee/deoplete-go', { 'do': 'make'}
 
 " Python
 Plug 'Vimjas/vim-python-pep8-indent'
