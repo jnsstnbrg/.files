@@ -167,9 +167,6 @@ let g:go_highlight_operators = 1
 let g:go_highlight_build_constraints = 1
 let g:go_highlight_extra_types = 1
 
-" Highlight variable uses
-let g:go_auto_sameids = 1
-
 " Add the failing test name to the output of :GoTest
 let g:go_test_show_name = 1
 
