@@ -314,6 +314,11 @@ nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
 
+nnoremap H ^
+nnoremap L $
+vnoremap H ^
+vnoremap L g_
+
 " Pressing ESC removes highlighting
 nnoremap <esc> :noh<return><esc>
 
