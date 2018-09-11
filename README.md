@@ -5,7 +5,7 @@
 Clone this repository
 
 ```sh
-git clone git@github.com:jnsstnbrg/dotfiles.git ~/.dotfiles/
+git clone git@github.com:jonasstenberg/dotfiles.git ~/.dotfiles/
 ```
 
 Install
