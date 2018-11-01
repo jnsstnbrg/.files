@@ -7,46 +7,83 @@ endfunction
 " - Avoid using standard Vim directory names like 'plugin'
 call plug#begin('~/.vim/plugged')
 
+" Auto-complete quotes, parantheses, brackets, etc
 Plug 'Raimondi/delimitMate'
+" Asynchronous completion for neovim
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+" Git diff in gutter
 Plug 'airblade/vim-gitgutter'
-Plug 'briancollins/vim-jst'
-Plug 'cakebaker/scss-syntax.vim'
-Plug 'carlitux/deoplete-ternjs', { 'do': 'npm install -g tern' }
-Plug 'editorconfig/editorconfig-vim'
-Plug 'groenewege/vim-less'
-Plug 'hail2u/vim-css3-syntax'
-Plug 'heavenshell/vim-jsdoc'
-Plug 'henrik/vim-qargs'
+" Status line
+Plug 'itchyny/lightline.vim'
+" Theme for status line
+Plug 'shinchu/lightline-gruvbox.vim'
+" fzf wrapper for Vim
 Plug 'junegunn/fzf.vim'
+" Start screen for Vim
 Plug 'mhinz/vim-startify'
+" Search tool for Vim
 Plug 'mileszs/ack.vim'
-Plug 'othree/es.next.syntax.vim'
-Plug 'othree/yajs.vim'
-Plug 'posva/vim-vue'
+" Collection of awesome color schemes for Vim
 Plug 'rafi/awesome-vim-colorschemes'
-Plug 'ternjs/tern_for_vim', { 'do': 'npm install' }
+" Provides easy to use, file-type sensible comments
 Plug 'tomtom/tcomment_vim'
+" Ends certain structures automatically, like if/end
 Plug 'tpope/vim-endwise'
+" Git wrapper, supports commands like :Gedit
 Plug 'tpope/vim-fugitive'
+" Sets up :Git to use hub if installed rather than git
 Plug 'tpope/vim-rhubarb'
+" Adds surroundings like parentheses, brackets, quotes, XML tags, etc. Use with cs'"
 Plug 'tpope/vim-surround'
-Plug 'tpope/vim-unimpaired'
+" Filesystem project drawer, press - to open
 Plug 'tpope/vim-vinegar'
+" ALE (Asynchronous Lint Engine) is a plugin for providing linting in Neovim
 Plug 'w0rp/ale'
-Plug 'zchee/deoplete-jedi'
+
+" HTML/CSS
+" ===========================================================================
+" Syntax highlighting for CSS3 syntax
+Plug 'hail2u/vim-css3-syntax'
+
+" JS
+" ===========================================================================
+" deoplete.nvim source for javascript.
+Plug 'carlitux/deoplete-ternjs', { 'do': 'npm install -g tern' }
+" Adds editorconfig highlitning
+Plug 'editorconfig/editorconfig-vim'
+" JSDoc
+Plug 'heavenshell/vim-jsdoc'
+" JS syntax highlighting
+Plug 'othree/yajs.vim'
+" Adds ECMAScript future syntax
+Plug 'othree/es.next.syntax.vim'
+" Plugin that provides Tern-based JavaScript editing support
+Plug 'ternjs/tern_for_vim', { 'do': 'npm install' }
+
+" JS frameworks
+" ===========================================================================
+" Highlighting for Vue components
+Plug 'posva/vim-vue'
 
 " Go
+" ===========================================================================
+" Adds Go language support for Vim
 Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' }
+" Helper tool that adds context-sensitive autocompletion
 Plug 'mdempsky/gocode', { 'rtp': 'vim', 'do': '~/.vim/plugged/gocode/vim/symlink.sh' }
+" Asynchronous Go completion for Neovim
 Plug 'zchee/deoplete-go', { 'do': 'make'}
 
 " Python
+" ===========================================================================
+" Small script modifies Vim’s indentation behavior to comply with PEP8
 Plug 'Vimjas/vim-python-pep8-indent'
+" Adds lots of Python specific features to Vim
 Plug 'python-mode/python-mode'
+" Adds support for pyenv virtualenvs
 Plug 'plytophogy/vim-virtualenv'
-
-Plug 'sheerun/vim-polyglot'
+" deoplete.nvim source for jedi, adds python syntax highlighting
+Plug 'zchee/deoplete-jedi'
 
 " Initializu plugin system
 call plug#end()
@@ -60,6 +97,9 @@ set termguicolors
 " Color scheme
 colorscheme gruvbox
 set background=dark
+
+let g:lightline = {}
+let g:lightline.colorscheme = 'gruvbox'
 
 " Set leader
 let mapleader="\<Space>"
