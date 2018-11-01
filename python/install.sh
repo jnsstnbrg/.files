@@ -7,9 +7,9 @@ install_pyenv() {
     pyenv virtualenv 2.7.11 neovim2
   fi
   if [ "$(pyenv versions | grep -Eio "3.4.4")" == "" ]; then
-    echo "Installing 3.4.4"
-    pyenv install 3.4.4
-    pyenv virtualenv 3.4.4 neovim3
+    echo "Installing 3.7.0"
+    pyenv install 3.7.0
+    pyenv virtualenv 3.7.0 neovim3
   fi
 
   pyenv activate neovim2
