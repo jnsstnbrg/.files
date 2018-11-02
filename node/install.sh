@@ -1,6 +1,6 @@
 #!/bin/bash
 
-nodes=('8.9.4')
+nodes=('10.13.0')
 
 # Node.js Installation
 install_node () {
