@@ -224,6 +224,23 @@ let g:python3_host_prog = '/Users/jonasstenberg/.pyenv/versions/neovim3/bin/pyth
 let g:vue_disable_pre_processors = 1
 " }}}
 
+" Lightline {{{
+let g:lightline = {
+      \ 'component_function': {
+      \   'filename': 'LightlineFilename',
+      \ }
+      \ }
+
+function! LightlineFilename()
+  let root = fnamemodify(get(b:, 'git_dir'), ':h')
+  let path = expand('%:p')
+  if path[:len(root)-1] ==# root
+    return path[len(root)+1:]
+  endif
+  return expand('%')
+endfunction
+" }}}
+
 " Built-in settings
 " ===========================================================================
 
