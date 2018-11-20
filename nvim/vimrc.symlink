@@ -85,6 +85,9 @@ Plug 'plytophogy/vim-virtualenv'
 " deoplete.nvim source for jedi, adds python syntax highlighting
 Plug 'zchee/deoplete-jedi'
 
+" Devicons (needs to go last, can alter other plugins)
+Plug 'ryanoasis/vim-devicons'
+
 " Initializu plugin system
 call plug#end()
 
@@ -108,12 +111,14 @@ let maplocalleader="\\"
 " Make copy operations work with the clipboard
 set clipboard=unnamed
 
+if executable('rg')
+  set grepprg=rg\ --vimgrep
+endif
+
 " Plugs
 " ===========================================================================
-
 " Ag {{{
 if executable('ag')
-  set grepprg=ag\ --nogroup\ --nocolor
   let g:ackprg = 'ag --vimgrep --nocolor --column'
 endif
 "
@@ -155,10 +160,9 @@ inoremap <silent><expr> <Tab>
 set rtp+=/usr/local/opt/fzf
 
 " Set environment variable
-let $FZF_DEFAULT_COMMAND = 'ag --hidden --ignore .git -g ""'
+" let $FZF_DEFAULT_COMMAND = 'ag --hidden --ignore .git -g ""'
+let $FZF_DEFAULT_COMMAND = 'rg --files --no-ignore --hidden --follow --glob "!.git/*"'
 
-" nnoremap <c-p> :GFiles<cr>
-nmap <C-p> :Files<CR>
 " }}}
 
 " GitGutter {{{
@@ -436,4 +440,21 @@ inoremap <expr><s-tab> pumvisible()?"\<c-p>":"\<c-d>"
 
 " Automatically equalize splits when Vim is resized
 autocmd VimResized * wincmd =
+
+" Files + devicons
+function! Fzf_files_with_dev_icons(command)
+  let l:fzf_files_options = '--preview "bat --color always --style numbers {2..} | head -'.&lines.'"'
+   function! s:edit_devicon_prepended_file(item)
+    let l:file_path = a:item[4:-1]
+    execute 'silent e' l:file_path
+  endfunction
+   call fzf#run({
+        \ 'source': a:command.' | devicon-lookup',
+        \ 'sink':   function('s:edit_devicon_prepended_file'),
+        \ 'options': '-m ' . l:fzf_files_options,
+        \ 'down':    '40%' })
+endfunction
+ " Open fzf Files
+map <C-p> :call Fzf_files_with_dev_icons($FZF_DEFAULT_COMMAND)<CR>
+
 " }}}
