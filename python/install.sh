@@ -13,15 +13,15 @@ install_pyenv() {
   fi
 
   pyenv activate neovim2
-  if hash neovim 2>/dev/null; then
-    echo "Installing neovim in pyenv `neovim2`"
-    pip install neovim
+  if hash pynvim 2>/dev/null; then
+    echo "Installing pynvim in pyenv `neovim2`"
+    pip install pynvim
   fi
 
   pyenv activate neovim3
-  if hash neovim 2>/dev/null; then
-    echo "Installing neovim in pyenv `neovim3`"
-    pip install neovim
+  if hash pynvim 2>/dev/null; then
+    echo "Installing pynvim in pyenv `neovim3`"
+    pip install pynvim
   fi
 }
 
