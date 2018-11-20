@@ -111,17 +111,14 @@ let maplocalleader="\\"
 " Make copy operations work with the clipboard
 set clipboard=unnamed
 
+" Plugs
+" ===========================================================================
+" ripgrep {{{
 if executable('rg')
   set grepprg=rg\ --vimgrep
 endif
+" "}}}
 
-" Plugs
-" ===========================================================================
-" Ag {{{
-if executable('ag')
-  let g:ackprg = 'ag --vimgrep --nocolor --column'
-endif
-"
 " Search for the word under the cursor
 nmap <M-k> :Ack! "\b<cword>\b" <CR>
 " }}}
@@ -161,7 +158,7 @@ set rtp+=/usr/local/opt/fzf
 
 " Set environment variable
 " let $FZF_DEFAULT_COMMAND = 'ag --hidden --ignore .git -g ""'
-let $FZF_DEFAULT_COMMAND = 'rg --files --no-ignore --hidden --follow --glob "!.git/*"'
+let $FZF_DEFAULT_COMMAND = 'rg --files --hidden --follow --glob "!.git/*"'
 
 " }}}
 
