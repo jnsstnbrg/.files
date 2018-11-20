@@ -111,11 +111,14 @@ let maplocalleader="\\"
 " Make copy operations work with the clipboard
 set clipboard=unnamed
 
+if executable('rg')
+  set grepprg=rg\ --vimgrep
+endif
+
 " Plugs
 " ===========================================================================
 " Ag {{{
 if executable('ag')
-  set grepprg=ag\ --nogroup\ --nocolor
   let g:ackprg = 'ag --vimgrep --nocolor --column'
 endif
 "
@@ -157,7 +160,8 @@ inoremap <silent><expr> <Tab>
 set rtp+=/usr/local/opt/fzf
 
 " Set environment variable
-let $FZF_DEFAULT_COMMAND = 'ag --hidden --ignore .git -g ""'
+" let $FZF_DEFAULT_COMMAND = 'ag --hidden --ignore .git -g ""'
+let $FZF_DEFAULT_COMMAND = 'rg --files --no-ignore --hidden --follow --glob "!.git/*"'
 
 " }}}
 
