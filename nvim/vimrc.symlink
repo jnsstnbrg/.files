@@ -111,6 +111,10 @@ let maplocalleader="\\"
 " Make copy operations work with the clipboard
 set clipboard=unnamed
 
+" Search for the word under the cursor
+nmap <M-k> :Ack! "\b<cword>\b" <CR>
+" }}}
+
 " Plugs
 " ===========================================================================
 " ripgrep {{{
@@ -118,10 +122,6 @@ if executable('rg')
   set grepprg=rg\ --vimgrep
 endif
 " "}}}
-
-" Search for the word under the cursor
-nmap <M-k> :Ack! "\b<cword>\b" <CR>
-" }}}
 
 " Ale {{{
 let g:ale_sign_error = '>>'

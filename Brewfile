@@ -52,6 +52,9 @@ cask "font-ubuntu"
 cask "font-league-gothic"
 cask "font-roboto"
 
+# Nerd fonts
+cask "font-hack-nerd-font"
+
 # Applications
 # ----------------------------------------------------------------------------
 
