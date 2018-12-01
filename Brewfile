@@ -87,6 +87,7 @@ cask "nordvpn"
 
 # Other
 cask "iterm2"
+cask "kitty"
 cask "keepingyouawake"
 cask "skype"
 cask "slack"
