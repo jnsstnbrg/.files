@@ -246,7 +246,9 @@ endfunction
 " ===========================================================================
 
 " Substitution {{{
-set inccommand=nosplit
+if exists('&inccommand')
+  set inccommand=nosplit
+endif
 " }}}
 
 " Search {{{
