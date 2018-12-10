@@ -47,4 +47,4 @@ alias reload="exec ${SHELL} -l"
 alias path='echo -e ${PATH//:/\\n}'
 
 # Tmuxinator
-alias tmux="tmuxinator"
+alias tm="tmuxinator"
