@@ -5,6 +5,7 @@ cask_args appdir: "/Applications"
 tap "caskroom/fonts"
 tap "caskroom/versions"
 tap "homebrew/bundle"
+tap "homebrew/services"
 
 # Packages
 # ----------------------------------------------------------------------------
