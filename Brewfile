@@ -17,6 +17,7 @@ brew "git"
 brew "gnu-sed"
 brew "go"
 brew "grc"
+brew "gzip"
 brew "htop-osx"
 brew "httpie", args: ["--HEAD"]
 brew "hub"
@@ -76,7 +77,6 @@ cask "beamer"
 
 # QuickLook plugins
 cask "qlcolorcode"
-cask "qlimagesize"
 cask "qlmarkdown"
 cask "qlprettypatch"
 cask "qlstephen"
