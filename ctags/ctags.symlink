@@ -1,18 +1,37 @@
 -f tags
 -R
 --fields=+l
---exclude=.svn
---exclude=.bundle
 --exclude=.git
---exclude=package-lock.json
+--exclude=.svn
+--exclude=.hg
+--exclude=min
+--exclude=vendor
+--exclude=\*.min.\*
+--exclude=\*.map
+--exclude=\*.swp
+--exclude=\*.bak
+--exclude=\*.pyc
+--exclude=\*.class
+--exclude=\*.sln
+--exclude=\*.Master
+--exclude=\*.csproj
+--exclude=\*.csproj.user
+--exclude=\*.cache
+--exclude=\*.dll
+--exclude=\*.pdb
+--exclude=tags
+--exclude=cscope.\*
+--exclude=\*.tar.\*
 --exclude=node_modules
---exclude=log
---exclude=tmp
+--exclude=bower_components
 --exclude=dist
---exclude=*.pyc
---exclude=*.pyo
---exclude=*.min.*
+--exclude=test
+--exclude=tests
+--exclude=.tmp
+--exclude=tmp
+--exclude=*bundle.*
 
+--languages=-javascript
 --langdef=js
 --langmap=js:.js
 --langmap=js:+.jsx
@@ -31,3 +50,10 @@
 --regex-js=/(function)*[ \t]*([A-Za-z$_][A-Za-z0-9_$]+)[ \t]*\([^)]*\)[ \t]*\{/\2/f,function/
 --regex-js=/['"]*([A-Za-z$][A-Za-z0-9_$]+)['"]*:[ \t]*function[ \t]*\(/\1/m,method/
 --regex-js=/([A-Za-z0-9_$]+)\[["']([A-Za-z0-9_$]+)["']\][ \t]*=[ \t]*function[ \t]*\(/\2/m,method/
+
+--langdef=markdown
+--langmap=markdown:.md
+
+--regex-markdown=/^(#+[ \t]+.*)/\1/h,heading,headings/
+
+--langmap=vim:+(vimrc)
