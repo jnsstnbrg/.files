@@ -27,3 +27,7 @@ if [ "$(gem list --local | grep -Eio "neovim")" == "" ]; then
   echo "Installing neovim"
   sudo gem install neovim
 fi
+
+if test ! $(which tmuxinator); then
+  gem install tmuxinator
+fi
