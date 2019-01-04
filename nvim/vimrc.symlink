@@ -39,6 +39,8 @@ Plug 'tpope/vim-surround'
 Plug 'tpope/vim-vinegar'
 " ALE (Asynchronous Lint Engine) is a plugin for providing linting in Neovim
 Plug 'w0rp/ale'
+" Tag management
+Plug 'ludovicchabant/vim-gutentags'
 
 " HTML/CSS
 " ===========================================================================
@@ -242,6 +244,16 @@ function! LightlineFilename()
 endfunction
 " }}}
 
+" Gutentags {{{
+
+set tags=./tags,tags;
+
+let g:gutentags_ctags_tagfile = 'tags'
+let g:gutentags_file_list_command = $FZF_DEFAULT_COMMAND
+let g:gutentags_generate_on_new = 1
+
+" }}}
+
 " Built-in settings
 " ===========================================================================
 
@@ -346,6 +358,7 @@ nnoremap <Leader>q :quit<CR>
 " numbering (mnemonic: relative).
 nnoremap <silent> <leader>s :syntax sync fromstart<CR>
 
+autocmd FileType vue syntax sync fromstart
 autocmd FileType markdown syntax sync fromstart
 
 " Search and replace
