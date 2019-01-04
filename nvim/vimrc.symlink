@@ -70,7 +70,7 @@ Plug 'posva/vim-vue'
 " Go
 " ===========================================================================
 " Adds Go language support for Vim
-Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' }
+Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 " Helper tool that adds context-sensitive autocompletion
 Plug 'mdempsky/gocode', { 'rtp': 'vim', 'do': '~/.vim/plugged/gocode/vim/symlink.sh' }
 " Asynchronous Go completion for Neovim
@@ -199,6 +199,8 @@ let g:go_fmt_command = "goimports"
 let g:go_auto_type_info = 1
 " Enable completing of go pointers
 let g:deoplete#sources#go#pointer = 1
+let g:deoplete#sources#go#gocode_binary = $GOPATH.'/bin/gocode'
+let g:deoplete#sources#go#sort_class = ['package', 'func', 'type', 'var', 'const']
 
 " Enable syntax highlighting per default
 let g:go_highlight_types = 1
@@ -222,6 +224,7 @@ au BufRead,BufNewFile *.py set expandtab
 let g:python_host_prog = '/Users/jonasstenberg/.pyenv/versions/neovim2/bin/python'
 let g:python3_host_prog = '/Users/jonasstenberg/.pyenv/versions/neovim3/bin/python'
 " }}}
+"
 
 " Vue {{{
 let g:vue_disable_pre_processors = 1
@@ -272,7 +275,7 @@ set gdefault                " have :s///g flag by default on"
 " }}}
 
 " Guides {{{
-set number                                          " show line numbers
+set relativenumber                                          " show line numbers
 autocmd BufNewFile,BufRead *.js set colorcolumn=80  " ruler at 80 chars width for js files
 set history=200                                     " remember a lot of stuff
 set ruler                                           " Always show info along bottom.
