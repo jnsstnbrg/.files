@@ -29,3 +29,7 @@ fi
 if test ! $(which sam); then
   npm install aws-sam-local -g
 fi
+
+if test ! $(which neovim); then
+  npm install -g neovim
+fi
