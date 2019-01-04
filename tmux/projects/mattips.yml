@@ -1,0 +1,24 @@
+# ~/.tmuxinator/mattips.yml
+
+name: mattips
+root: ~/Develop/Private/
+
+windows:
+  - frontend:
+      root: ~/Develop/Private/mattips
+      panes:
+        - $EDITOR
+  - backend:
+      root: ~/Develop/Private/mattips-api
+      panes:
+        - $EDITOR
+  - server:
+      layout: even-horizontal
+      panes:
+        - cd mattips && npm run serve
+        - cd mattips-api && npm run watch
+  - db:
+      layout: even-horizontal
+      panes:
+        - cd mattips-api && dynamodb-local
+        - cd /usr/local/Caskroom/dynamodb-local/latest && ls *.db
