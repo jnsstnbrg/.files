@@ -19,11 +19,13 @@ install_ruby () {
 
     rbenv global "${rubies}"
     sleep 1
-    sudo gem install bundler
+    gem install bundler
   fi
 }
 
 if [ "$(gem list --local | grep -Eio "neovim")" == "" ]; then
   echo "Installing neovim"
-  sudo gem install neovim
+  gem install neovim
 fi
+
+install_ruby
