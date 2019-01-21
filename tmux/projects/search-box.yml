@@ -1,7 +1,7 @@
 # ~/.tmuxinator/search-results.yml
 
 name: search-box
-root: ~/Develop/Work/IKEA-M2/search-box
+root: ~/Develop/Work/IKEA/search-box
 
 # Optional tmux socket
 # socket_name: foo

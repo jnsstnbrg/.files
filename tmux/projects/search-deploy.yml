@@ -1,7 +1,7 @@
 # ~/.tmuxinator/search-deploy.yml
 
 name: search-deploy
-root: ~/Develop/Work/IKEA-M2/search-deploy
+root: ~/Develop/Work/IKEA/search-deploy
 
 # Optional tmux socket
 # socket_name: foo

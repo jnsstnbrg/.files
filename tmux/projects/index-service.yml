@@ -1,7 +1,7 @@
 # ~/.tmuxinator/index-service.yml
 
 name: index-service
-root: ~/Develop/Work/IKEA-M2/index-service
+root: ~/Develop/Work/IKEA/index-service
 
 # Optional tmux socket
 # socket_name: foo

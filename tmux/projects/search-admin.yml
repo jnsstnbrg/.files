@@ -1,7 +1,7 @@
 # ~/.tmuxinator/search-admin.yml
 
 name: search-admin
-root: ~/Develop/Work/IKEA-M2/search-admin
+root: ~/Develop/Work/IKEA/search-admin
 
 # Optional tmux socket
 # socket_name: foo

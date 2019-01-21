@@ -1,7 +1,7 @@
 # ~/.tmuxinator/product-repair.yml
 
 name: product-repair
-root: ~/Develop/Work/IKEA-M2/product-repair
+root: ~/Develop/Work/IKEA/product-repair
 
 # Optional tmux socket
 # socket_name: foo
