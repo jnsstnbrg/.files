@@ -29,9 +29,6 @@ defaults write bluetoothaudiod "AAC Bitrate" 320
 # Hide scrollbar when not used
 defaults write com.apple.Terminal AppleShowScrollBars -string WhenScrolling
 
-# Always show scrollbars
-defaults write NSGlobalDomain AppleShowScrollBars -string "Always"
-
 # Disable press-and-hold for keys in favor of key repeat.
 defaults write -g ApplePressAndHoldEnabled -bool false
 
