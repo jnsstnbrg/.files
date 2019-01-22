@@ -150,6 +150,8 @@ map <C-p> :call Fzf_files_with_dev_icons($FZF_DEFAULT_COMMAND)<CR>
 " ripgrep {{{
 if executable('rg')
   set grepprg=rg\ --vimgrep
+
+  nnoremap <C-g> :Rg<Cr>
 endif
 " "}}}
 
