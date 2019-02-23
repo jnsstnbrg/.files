@@ -38,6 +38,13 @@ function work_in_progress() {
 # (sorted alphabetically)
 #
 
+autoload -Uz compinit
+if [ $(date +'%j') != $(stat -f '%Sm' -t '%j' ~/.zcompdump) ]; then
+  compinit
+else
+  compinit -C
+fi
+
 alias g='git'
 
 alias gbrag='git shortlog -n -s --all'
