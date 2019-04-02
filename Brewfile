@@ -19,7 +19,7 @@ brew "go"
 brew "grc"
 brew "gzip"
 brew "htop-osx"
-brew "httpie", args: ["--HEAD"]
+brew "httpie"
 brew "hub"
 brew "jq"
 brew "neovim"
