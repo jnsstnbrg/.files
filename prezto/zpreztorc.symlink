@@ -38,6 +38,7 @@ zstyle ':prezto:load' pmodule \
   'prompt' \
   'git' \
   'syntax-highlighting' \
+  'history-substring-search' \
   'node' \
   'terminal' \
   'tmux'
