@@ -11,7 +11,9 @@ tap "homebrew/services"
 # ----------------------------------------------------------------------------
 brew "ack"
 brew "awscli"
+brew "ctags"
 brew "dep"
+brew "fd"
 brew "fzf"
 brew "git"
 brew "gnu-sed"
@@ -35,7 +37,6 @@ brew "the_silver_searcher"
 brew "tmux"
 brew "tree"
 brew "wget"
-brew "fd"
 brew "zsh"
 
 # Fonts
@@ -69,11 +70,11 @@ cask "safari-technology-preview"
 cask "docker"
 
 # Media
+cask "beamer"
 cask "calibre"
+cask "sketch"
 cask "spotify"
 cask "vlc"
-cask "sketch"
-cask "beamer"
 
 # QuickLook plugins
 cask "qlcolorcode"
@@ -87,12 +88,12 @@ cask "1password"
 cask "nordvpn"
 
 # Other
+cask "bettertouchtool"
 cask "iterm2"
-cask "kitty"
 cask "keepingyouawake"
+cask "kitty"
 cask "skype"
 cask "slack"
-cask "whatsapp"
 cask "sublime-text"
 cask "visual-studio-code"
-cask "bettertouchtool"
+cask "whatsapp"
