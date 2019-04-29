@@ -1,5 +1,6 @@
 # shortcut to this dotfiles path is $ZSH
 export DOTFILES=$HOME/.dotfiles
+export ZSH=$HOME/.oh-my-zsh
 export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
 export PATH="/usr/local/sbin:$PATH"
@@ -9,20 +10,25 @@ export LESS="-F -X --raw-control-chars"
 # zmodload zsh/zprof
 # zprof
 
+# Theme
+ZSH_THEME="robbyrussell"
+
+# Plugins
+plugins=(
+  common-aliases
+  docker
+  encode64
+  gitignore
+  osx
+  sublime
+  zsh-syntax-highlighting
+)
+
 # Default editor
 export EDITOR='nvim'
 
-#
-# Executes commands at the start of an interactive session.
-#
-# Authors:
-#   Sorin Ionescu <sorin.ionescu@gmail.com>
-#
-
-# Source Prezto.
-if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
-  source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
-fi
+# Source base .zsh
+source $ZSH/oh-my-zsh.sh
 
 # Stash your environment variables in ~/.localrc. This means they'll stay out
 # of your main dotfiles repository (which may be public, like this one), but
@@ -75,8 +81,3 @@ fi;
 if [[ -n $VIRTUAL_ENV && -e "${VIRTUAL_ENV}/bin/activate" ]]; then
   source "${VIRTUAL_ENV}/bin/activate"
 fi
-
-bindkey '-M' viins '^r' history-incremental-search-backward
-bindkey '-M' vicmd '^r' history-incremental-search-backward
-bindkey '^N' down-line-or-history
-bindkey '^P' up-line-or-history
