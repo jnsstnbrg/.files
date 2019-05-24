@@ -10,14 +10,13 @@ call plug#begin('~/.vim/plugged')
 " Miscellaneous
 " ===========================================================================
 Plug 'airblade/vim-gitgutter'                                                           " Git diff in gutter
-Plug 'itchyny/lightline.vim'                                                            " Status line
+Plug 'rbong/vim-crystalline'                                                            " Status line
 Plug 'ludovicchabant/vim-gutentags'                                                     " Tag management
 Plug 'jeffkreeftmeijer/vim-numbertoggle'                                                " Line number toggling
 Plug 'junegunn/fzf.vim'                                                                 " fzf wrapper for Vim
 Plug 'mhinz/vim-startify'                                                               " Start screen for Vim
 Plug 'mileszs/ack.vim'                                                                  " Search tool for Vim
 Plug 'Raimondi/delimitMate'                                                             " Auto-complete quotes, parantheses, brackets, etc
-Plug 'shinchu/lightline-gruvbox.vim'                                                    " Theme for status line
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }                           " Asynchronous completion for neovim
 Plug 'rafi/awesome-vim-colorschemes'                                                    " Collection of awesome color schemes for Vim
 Plug 'tomtom/tcomment_vim'                                                              " Provides easy to use, file-type sensible comments
@@ -85,6 +84,16 @@ set clipboard=unnamed
 " Open new split panes to right and bottom, which feels more natural than Vim’s default
 set splitbelow
 set splitright
+
+" Disable auto matching parens
+let g:loaded_matchparen=1
+
+" Don't render special chars (tabs, trails, ...)
+set nolist
+
+" Lazy drawing
+set lazyredraw
+set ttyfast
 
 " Plugs
 " ===========================================================================
@@ -198,7 +207,7 @@ autocmd FileType go nmap <leader>gt :GoDeclsDir<cr>
 " Run goimports when running gofmt
 let g:go_fmt_command = "goimports"
 " Show type information
-let g:go_auto_type_info = 1
+let g:go_auto_sameids = 1
 " Enable completing of go pointers
 let g:deoplete#sources#go#pointer = 1
 let g:deoplete#sources#go#gocode_binary = $GOPATH.'/bin/gocode'
@@ -231,22 +240,19 @@ let g:python3_host_prog = '/Users/jonasstenberg/.pyenv/versions/neovim3/bin/pyth
 let g:vue_disable_pre_processors = 1
 " }}}
 
-" Lightline {{{
-let g:lightline = {
-      \ 'component_function': {
-      \   'filename': 'LightlineFilename',
-      \ }
-      \ }
-let g:lightline.colorscheme = 'gruvbox'
-
-function! LightlineFilename()
-  let root = fnamemodify(get(b:, 'git_dir'), ':h')
-  let path = expand('%:p')
-  if path[:len(root)-1] ==# root
-    return path[len(root)+1:]
-  endif
-  return expand('%')
+" Crystalline {{{
+function! StatusLine(current)
+  return (a:current ? crystalline#mode() . '%#Crystalline#' : '%#CrystallineInactive#')
+        \ . ' %f%h%w%m%r '
+        \ . (a:current ? '%#CrystallineFill# %{fugitive#head()} ' : '')
+        \ . '%=' . (a:current ? '%#Crystalline# %{&paste?"PASTE ":""}%{&spell?"SPELL ":""}' . crystalline#mode_color() : '')
+        \ . ' %{&ft}[%{&enc}][%{&ffs}] %l/%L %3(%c%V%) %P '
 endfunction
+
+let g:crystalline_statusline_fn = 'StatusLine'
+let g:crystalline_theme = 'gruvbox'
+
+set laststatus=2
 " }}}
 
 " Gutentags {{{
