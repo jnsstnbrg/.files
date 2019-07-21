@@ -1,0 +1,17 @@
+{
+  "coc.preferences.formatOnSaveFiletypes": ["javascript", "typescript", "json"],
+  "diagnostic.displayByAle": true,
+  "eslint.filetypes": ["javascript", "typescript"],
+  "javascript.suggestionActions.enabled": false,
+  "languageserver": {
+    "bash": {
+      "command": "bash-language-server",
+      "args": ["start"],
+      "filetypes": ["sh"],
+      "ignoredRootPaths": ["~"]
+    }
+  },
+  "suggest.echodocSupport": true,
+  "suggest.triggerAfterInsertEnter": true,
+  "tsserver.npm": "~/.nodenv/versions/10.13.0/bin/npm"
+}

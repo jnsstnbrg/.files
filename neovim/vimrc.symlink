@@ -6,63 +6,26 @@ endfunction
 " - For Neovim: ~/.local/share/nvim/plugged
 " - Avoid using standard Vim directory names like 'plugin'
 call plug#begin('~/.vim/plugged')
-
-" Miscellaneous
-" ===========================================================================
-Plug 'airblade/vim-gitgutter'                                                           " Git diff in gutter
-Plug 'rbong/vim-crystalline'                                                            " Status line
-Plug 'ludovicchabant/vim-gutentags'                                                     " Tag management
-Plug 'jeffkreeftmeijer/vim-numbertoggle'                                                " Line number toggling
-Plug 'junegunn/fzf.vim'                                                                 " fzf wrapper for Vim
-Plug 'mhinz/vim-startify'                                                               " Start screen for Vim
-Plug 'mileszs/ack.vim'                                                                  " Search tool for Vim
-Plug 'Raimondi/delimitMate'                                                             " Auto-complete quotes, parantheses, brackets, etc
-Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }                           " Asynchronous completion for neovim
-Plug 'rafi/awesome-vim-colorschemes'                                                    " Collection of awesome color schemes for Vim
-Plug 'tomtom/tcomment_vim'                                                              " Provides easy to use, file-type sensible comments
-Plug 'tpope/vim-endwise'                                                                " Ends certain structures automatically, like if/end
-Plug 'tpope/vim-fugitive'                                                               " Git wrapper, supports commands like :Gedit
-Plug 'tpope/vim-rhubarb'                                                                " Sets up :Git to use hub if installed rather than git
-Plug 'tpope/vim-surround'                                                               " Adds surroundings like parentheses, brackets, quotes, XML tags, etc. Use with cs'
-Plug 'tpope/vim-vinegar'                                                                " Filesystem project drawer, press - to open
-Plug 'w0rp/ale'                                                                         " ALE (Asynchronous Lint Engine) is a plugin for providing linting in Neovim
-Plug 'easymotion/vim-easymotion'
-
-" HTML/CSS
-" ===========================================================================
-Plug 'hail2u/vim-css3-syntax'                                                           " Syntax highlighting for CSS3 syntax
-
-" JS
-" ===========================================================================
-Plug 'carlitux/deoplete-ternjs', { 'do': 'npm install -g tern' }                        " deoplete.nvim source for javascript.
-Plug 'editorconfig/editorconfig-vim'                                                    " Adds editorconfig highlitning
-Plug 'heavenshell/vim-jsdoc'                                                            " JSDoc
-Plug 'othree/yajs.vim'                                                                  " JS syntax highlighting
-Plug 'othree/es.next.syntax.vim'                                                        " Adds ECMAScript future syntax
-Plug 'ternjs/tern_for_vim', { 'do': 'npm install' }                                     " Plugin that provides Tern-based JavaScript editing support
-
-" JS frameworks
-" ===========================================================================
-Plug 'posva/vim-vue'                                                                    " Highlighting for Vue components
-
-" Go
-" ===========================================================================
-Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }                                      " Adds Go language support for Vim
-Plug 'mdempsky/gocode', { 'rtp': 'vim', 'do': '~/.vim/plugged/gocode/vim/symlink.sh' }  " Helper tool that adds context-sensitive autocompletion
-Plug 'zchee/deoplete-go', { 'do': 'make'}                                               " Asynchronous Go completion for Neovim
-
-" Python
-" ===========================================================================
-Plug 'plytophogy/vim-virtualenv'                                                        " Adds support for pyenv virtualenvs
-Plug 'python-mode/python-mode'                                                          " Adds lots of Python specific features to Vim
-Plug 'Vimjas/vim-python-pep8-indent'                                                    " Small script modifies Vim’s indentation behavior to comply with PEP8
-Plug 'zchee/deoplete-jedi'                                                              " deoplete.nvim source for jedi, adds python syntax highlighting
-
-" Devicons
-" ===========================================================================
-Plug 'ryanoasis/vim-devicons'                                                           " Devicons (needs to go last, can alter other plugins)
-
-" Initializu plugin system
+Plug 'airblade/vim-gitgutter'                       " Git diff in gutter
+Plug 'rbong/vim-crystalline'                        " Status line
+Plug 'ludovicchabant/vim-gutentags'                 " Tag management
+Plug 'jeffkreeftmeijer/vim-numbertoggle'            " Line number toggling
+Plug 'junegunn/fzf.vim'                             " fzf wrapper for Vim
+Plug 'mhinz/vim-startify'                           " Start screen for Vim
+Plug 'rafi/awesome-vim-colorschemes'                " Collection of awesome color schemes for Vim
+Plug 'tomtom/tcomment_vim'                          " Provides easy to use, file-type sensible comments
+Plug 'tpope/vim-endwise'                            " Ends certain structures automatically, like if/end
+Plug 'tpope/vim-fugitive'                           " Git wrapper, supports commands like :Gedit
+Plug 'tpope/vim-rhubarb'                            " Sets up :Git to use hub if installed rather than git
+Plug 'tpope/vim-surround'                           " Adds surroundings like parentheses, brackets, quotes, XML tags, etc. Use with cs'
+Plug 'tpope/vim-vinegar'                            " Filesystem project drawer, press - to open
+Plug 'w0rp/ale'                                     " ALE (Asynchronous Lint Engine) is a plugin for providing linting in Neovim
+Plug 'easymotion/vim-easymotion'                    " EasyMotion provides a simple way to use some motions in vim by allowing you to press one key to jump directly to the target.
+Plug 'sheerun/vim-polyglot'                         " A collection of language packs for Vim
+Plug 'heavenshell/vim-jsdoc'                        " JSDoc
+Plug 'neoclide/coc.nvim', {'branch': 'release'}     " Intellisense engine for vim8 & neovim
+Plug 'plytophogy/vim-virtualenv'                    " Adds support for pyenv virtualenvs
+Plug 'ryanoasis/vim-devicons'                       " Devicons (needs to go last, can alter other plugins)
 call plug#end()
 
 " Leave the past behind
@@ -102,36 +65,26 @@ set ttyfast
 " Plugs
 " ===========================================================================
 
+" Coc.nvim {{{
+set cmdheight=2
+let g:echodoc_enable_at_startup = 1
+
+nmap <silent> gn <Plug>(coc-rename)
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gt <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
+" }}}
+
 " Ale {{{
 let g:ale_sign_error = '>>'
 let g:ale_sign_warning = '--'
+let g:ale_fixers = {
+ \ 'javascript': ['eslint']
+ \ }
+let g:ale_fix_on_save = 1
 
 " let g:ale_linters = {'vue': ['stylelint', 'eslint']}
-" }}}
-
-" Deoplete {{{
-let g:deoplete#enable_at_startup = 1
-let g:deoplete#enable_smart_case = 1
-
-" "}}}
-
-" Tern {{{
-let g:tern_request_timeout = 1
-let g:tern_show_signature_in_pum = '0'
-let g:tern#command = ["tern"]
-let g:tern#arguments = ["--persistent"]
-let g:tern#filetypes = [
-                \ 'jsx',
-                \ 'javascript.jsx',
-                \ 'vue',
-                \ ]" Complete with <Tab>
-inoremap <silent><expr> <Tab>
-  \ pumvisible() ? "\<C-n>" :
-  \ deoplete#mappings#manual_complete()
-
-" Recommended settings
-" set completeopt+=noinsert
-" set completeopt+=noselect
 " }}}
 
 " fzf {{{
@@ -213,10 +166,6 @@ let g:go_fmt_command = "goimports"
 " Show type information
 let g:go_auto_sameids = 1
 " Enable completing of go pointers
-let g:deoplete#sources#go#pointer = 1
-let g:deoplete#sources#go#gocode_binary = $GOPATH.'/bin/gocode'
-let g:deoplete#sources#go#sort_class = ['package', 'func', 'type', 'var', 'const']
-
 " Enable syntax highlighting per default
 let g:go_highlight_types = 1
 let g:go_highlight_fields = 1
@@ -264,8 +213,10 @@ set laststatus=2
 set tags=./tags,tags;
 
 let g:gutentags_ctags_tagfile = 'tags'
-let g:gutentags_file_list_command = $FZF_DEFAULT_COMMAND
+let g:gutentags_file_list_command = 'rg --files'
 let g:gutentags_generate_on_new = 1
+
+nnoremap <leader>t <C-]>
 
 " }}}
 
@@ -402,23 +353,11 @@ nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
 
-" Search for the word under the cursor
-nmap <M-k> :Ack! "\b<cword>\b" <CR>
-
-" Leader mappings
-nnoremap <Leader>g :Lines<CR>
-nnoremap <Leader>c :Commits<CR>
-nnoremap <Leader>w :write<CR>
-nnoremap <Leader>q :quit<CR>
-
 " Force syntax sync
 nnoremap <silent> <leader>s :syntax sync fromstart<CR>
 
 autocmd FileType vue syntax sync fromstart
 autocmd FileType markdown syntax sync fromstart
-
-" Search and replace
-nnoremap c* *Ncgn
 
 " Pressing ESC removes highlighting
 nnoremap <esc> :noh<return><esc>
@@ -432,19 +371,6 @@ nnoremap H ^
 nnoremap L $
 vnoremap H ^
 vnoremap L g_
-
-" Pressing ESC removes highlighting
-nnoremap <esc> :noh<return><esc>
-
-" Complete with <Tab>
-function! s:check_back_space() abort
-    let col = col('.') - 1
-    return !col || getline('.')[col - 1]  =~ '\s'
-endfunction
-inoremap <silent><expr> <TAB>
-    \ pumvisible() ? "\<C-n>" :
-    \ <SID>check_back_space() ? "\<TAB>" :
-    \ deoplete#mappings#manual_complete()
 
 " Trim trailing whitespace on save
 autocmd BufWritePre * :%s/\s\+$//e
@@ -467,26 +393,25 @@ augroup BWCCreateDir
     autocmd BufWritePre * :call s:MkNonExDir(expand('<afile>'), +expand('<abuf>'))
 augroup END
 
+" use <tab> for trigger completion and navigate to the next complete item
+function! s:check_back_space() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~ '\s'
+endfunction
+
+inoremap <silent><expr> <Tab>
+      \ pumvisible() ? "\<C-n>" :
+      \ <SID>check_back_space() ? "\<Tab>" :
+      \ coc#refresh()
+
+inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
+inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+
+" Close preview window after completion is done
 " Automatically close scratch window when finishing a completion or leaving
 " insert mode
 autocmd InsertLeave,CompleteDone * if pumvisible() == 0 | pclose | endif
 
-" Invert <Tab> behavior when pressing <Shift><Tab>
-function! InsertTabWrapper()
-  if pumvisible()
-    return "\<c-n>"
-  endif
-  let col = col('.') - 1
-  if !col || getline('.')[col - 1] !~ '\k'
-    return "\<tab>"
-  else
-    return "\<c-x>\<c-o>"
-  endif
-endfunction
-inoremap <expr><tab> InsertTabWrapper()
-inoremap <expr><s-tab> pumvisible()?"\<c-p>":"\<c-d>"
-
 " Automatically equalize splits when Vim is resized
 autocmd VimResized * wincmd =
-
 " }}}
