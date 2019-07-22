@@ -12,10 +12,10 @@ apps=("Google Chrome" "Mail" "Slack" "iTerm" "System Preferences")
 
 IFS=""
 for app in ${apps[*]}; do
-  found=$(python $DOTFILES/scripts/dockutil.py --find "$app")
+  found=$(python $DOTFILES/macos/dockutil.py --find "$app")
   if [[ $found == *"was not found in"* ]]; then
     echo "Adding $app to Dock"
-    python "$DOTFILES/scripts/dockutil.py" --add "/Applications/$app.app"
+    python "$DOTFILES/macos/dockutil.py" --add "/Applications/$app.app"
   else
     echo "$app already exists in Dock"
   fi
