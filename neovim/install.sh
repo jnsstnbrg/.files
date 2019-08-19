@@ -29,4 +29,4 @@ install_plugins() {
 }
 
 install_plugins
-ln -s "${DOTFILES}/nvim/coc-settings.json" ~/.config/nvim/coc-settings.json
+ln -s "${DOTFILES}/neovim/coc-settings.json" ~/.config/nvim/coc-settings.json
