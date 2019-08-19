@@ -26,6 +26,7 @@ Plug 'heavenshell/vim-jsdoc'                        " JSDoc
 Plug 'neoclide/coc.nvim', {'branch': 'release'}     " Intellisense engine for vim8 & neovim
 Plug 'plytophogy/vim-virtualenv'                    " Adds support for pyenv virtualenvs
 Plug 'ryanoasis/vim-devicons'                       " Devicons (needs to go last, can alter other plugins)
+Plug 'posva/vim-vue'
 call plug#end()
 
 " Leave the past behind
