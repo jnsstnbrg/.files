@@ -20,7 +20,7 @@ install_plugins() {
   nvim +PlugInstall +UpdateRemotePlugins +qall
   success "done"
 
-  extensions="coc-tsserver coc-eslint coc-json coc-html coc-css coc-tag coc-vetur coc-gocode coc-pairs"
+  extensions="coc-tsserver coc-eslint coc-json coc-html coc-css coc-tag coc-vetur coc-gocode coc-pairs coc-prettier"
   bullet "Installing Coc extensions... "
   mkdir -p ~/.config/coc/extensions
   cd ~/.config/coc/extensions
