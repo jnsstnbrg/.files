@@ -6,27 +6,28 @@ endfunction
 " - For Neovim: ~/.local/share/nvim/plugged
 " - Avoid using standard Vim directory names like 'plugin'
 call plug#begin('~/.vim/plugged')
-Plug 'airblade/vim-gitgutter'                       " Git diff in gutter
-Plug 'rbong/vim-crystalline'                        " Status line
-Plug 'ludovicchabant/vim-gutentags'                 " Tag management
-Plug 'jeffkreeftmeijer/vim-numbertoggle'            " Line number toggling
-Plug 'junegunn/fzf.vim'                             " fzf wrapper for Vim
-Plug 'mhinz/vim-startify'                           " Start screen for Vim
-Plug 'rafi/awesome-vim-colorschemes'                " Collection of awesome color schemes for Vim
-Plug 'tomtom/tcomment_vim'                          " Provides easy to use, file-type sensible comments
-Plug 'tpope/vim-endwise'                            " Ends certain structures automatically, like if/end
-Plug 'tpope/vim-fugitive'                           " Git wrapper, supports commands like :Gedit
-Plug 'tpope/vim-rhubarb'                            " Sets up :Git to use hub if installed rather than git
-Plug 'tpope/vim-surround'                           " Adds surroundings like parentheses, brackets, quotes, XML tags, etc. Use with cs'
-Plug 'tpope/vim-vinegar'                            " Filesystem project drawer, press - to open
-Plug 'w0rp/ale'                                     " ALE (Asynchronous Lint Engine) is a plugin for providing linting in Neovim
-Plug 'easymotion/vim-easymotion'                    " EasyMotion provides a simple way to use some motions in vim by allowing you to press one key to jump directly to the target.
-Plug 'sheerun/vim-polyglot'                         " A collection of language packs for Vim
-Plug 'heavenshell/vim-jsdoc'                        " JSDoc
-Plug 'neoclide/coc.nvim', {'branch': 'release'}     " Intellisense engine for vim8 & neovim
-Plug 'plytophogy/vim-virtualenv'                    " Adds support for pyenv virtualenvs
-Plug 'ryanoasis/vim-devicons'                       " Devicons (needs to go last, can alter other plugins)
-Plug 'posva/vim-vue'
+Plug 'airblade/vim-gitgutter'                                             " Git diff in gutter
+Plug 'easymotion/vim-easymotion'                                          " EasyMotion provides a simple way to use some motions in vim by allowing you to press one key to jump directly to the target.
+Plug 'heavenshell/vim-jsdoc'                                              " JSDoc
+Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install'  }   " Preview markdown on your modern browser with synchronised scrolling and flexible configuration
+Plug 'jeffkreeftmeijer/vim-numbertoggle'                                  " Line number toggling
+Plug 'junegunn/fzf.vim'                                                   " fzf wrapper for Vim
+Plug 'ludovicchabant/vim-gutentags'                                       " Tag management
+Plug 'mhinz/vim-startify'                                                 " Start screen for Vim
+Plug 'neoclide/coc.nvim', {'branch': 'release'}                           " Intellisense engine for vim8 & neovim
+Plug 'plytophogy/vim-virtualenv'                                          " Adds support for pyenv virtualenvs
+Plug 'posva/vim-vue'                                                      " Vim syntax highlighting for Vue components
+Plug 'rafi/awesome-vim-colorschemes'                                      " Collection of awesome color schemes for Vim
+Plug 'rbong/vim-crystalline'                                              " Status line
+Plug 'ryanoasis/vim-devicons'                                             " Devicons (needs to go last, can alter other plugins)
+Plug 'sheerun/vim-polyglot'                                               " A collection of language packs for Vim
+Plug 'tomtom/tcomment_vim'                                                " Provides easy to use, file-type sensible comments
+Plug 'tpope/vim-endwise'                                                  " Ends certain structures automatically, like if/end
+Plug 'tpope/vim-fugitive'                                                 " Git wrapper, supports commands like :Gedit
+Plug 'tpope/vim-rhubarb'                                                  " Sets up :Git to use hub if installed rather than git
+Plug 'tpope/vim-surround'                                                 " Adds surroundings like parentheses, brackets, quotes, XML tags, etc. Use with cs'
+Plug 'tpope/vim-vinegar'                                                  " Filesystem project drawer, press - to open
+Plug 'w0rp/ale'                                                           " ALE (Asynchronous Lint Engine) is a plugin for providing linting in Neovim
 call plug#end()
 
 " Leave the past behind
@@ -75,6 +76,8 @@ nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gt <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
+
+command! -nargs=0 Prettier :CocCommand prettier.formatFile
 " }}}
 
 " Ale {{{
