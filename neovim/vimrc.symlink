@@ -145,7 +145,7 @@ let g:gitgutter_sign_removed_first_line = "^_"
 let g:jsdoc_enable_es6 = 1
 
 " Js doc
-nmap <silent> <C-i> <Plug>(jsdoc)
+nmap <silent> <C-y> <Plug>(jsdoc)
 
 " }}}
 
