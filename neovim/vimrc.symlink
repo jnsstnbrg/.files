@@ -16,7 +16,6 @@ Plug 'ludovicchabant/vim-gutentags'                                       " Tag 
 Plug 'mhinz/vim-startify'                                                 " Start screen for Vim
 Plug 'neoclide/coc.nvim', {'branch': 'release'}                           " Intellisense engine for vim8 & neovim
 Plug 'plytophogy/vim-virtualenv'                                          " Adds support for pyenv virtualenvs
-Plug 'posva/vim-vue'                                                      " Vim syntax highlighting for Vue components
 Plug 'rafi/awesome-vim-colorschemes'                                      " Collection of awesome color schemes for Vim
 Plug 'rbong/vim-crystalline'                                              " Status line
 Plug 'ryanoasis/vim-devicons'                                             " Devicons (needs to go last, can alter other plugins)
