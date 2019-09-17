@@ -1,7 +1,3 @@
-function! DoRemote(arg)
-  UpdateRemotePlugins
-endfunction
-
 " Specify a directory for plugins
 " - For Neovim: ~/.local/share/nvim/plugged
 " - Avoid using standard Vim directory names like 'plugin'
@@ -82,12 +78,12 @@ command! -nargs=0 Prettier :CocCommand prettier.formatFile
 " Ale {{{
 let g:ale_sign_error = '>>'
 let g:ale_sign_warning = '--'
-let g:ale_fixers = {
- \ 'javascript': ['eslint']
- \ }
-let g:ale_fix_on_save = 1
+" let g:ale_fixers = {'javascript': ['eslint']}
+let g:ale_fixers = {'javascript': ['standard']}
+" let g:ale_linters = {'javascript': ['eslint', 'prettier']}
+let g:ale_linters = {'javascript': ['standard']}
 
-" let g:ale_linters = {'vue': ['stylelint', 'eslint']}
+let g:ale_fix_on_save = 1
 " }}}
 
 " fzf {{{
