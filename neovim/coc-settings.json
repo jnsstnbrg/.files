@@ -13,5 +13,9 @@
   },
   "suggest.echodocSupport": true,
   "suggest.triggerAfterInsertEnter": true,
-  "tsserver.npm": "~/.nodenv/versions/10.13.0/bin/npm"
+  "tsserver.npm": "~/.nodenv/versions/10.13.0/bin/npm",
+  "prettier.requireConfig": true,
+  "prettier.singleQuote": true,
+  "prettier.trailingComma": "all",
+  "prettier.eslintIntegration": true
 }
