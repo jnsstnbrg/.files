@@ -18,3 +18,6 @@ Thumbs.db
 
 # Vim Gutentags
 tags
+
+# .vim workspace configuration
+.vim
