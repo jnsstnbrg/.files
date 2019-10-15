@@ -26,7 +26,7 @@ brew "httpie"
 brew "hub"
 brew "jq"
 brew "luarocks"
-brew "neovim", args: ['HEAD']
+brew "neovim"
 brew "nmap"
 brew "nodenv"
 brew "pyenv"
