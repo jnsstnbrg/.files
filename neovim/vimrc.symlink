@@ -15,6 +15,7 @@ Plug 'plytophogy/vim-virtualenv'                                          " Adds
 Plug 'rafi/awesome-vim-colorschemes'                                      " Collection of awesome color schemes for Vim
 Plug 'rbong/vim-crystalline'                                              " Status line
 Plug 'ryanoasis/vim-devicons'                                             " Devicons (needs to go last, can alter other plugins)
+Plug 'fatih/vim-go'                                                       " Adds Go language support
 Plug 'sheerun/vim-polyglot'                                               " A collection of language packs for Vim
 Plug 'tomtom/tcomment_vim'                                                " Provides easy to use, file-type sensible comments
 Plug 'tpope/vim-endwise'                                                  " Ends certain structures automatically, like if/end
