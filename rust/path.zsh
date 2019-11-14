@@ -1,2 +1,2 @@
-export RUSTPATH=$HOME/.cargo
-export PATH=$PATH:$RUSTPATH/bin
+export RUSTPATH=$HOME/.cargo/bin
+export PATH=$PATH:$RUSTPATH
