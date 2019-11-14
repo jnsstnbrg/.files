@@ -30,3 +30,9 @@ install_plugins() {
 
 install_plugins
 ln -s "${DOTFILES}/neovim/coc-settings.json" ~/.config/nvim/coc-settings.json
+
+
+if [[ ! -f ~/.config/nvim/lua/fzf.lua ]]; then
+  mkdir -p ~/.config/nvim/lua
+  ln -s "${DOTFILES}/neovim/fzf.lua" ~/.config/nvim/lua/fzf.lua
+fi

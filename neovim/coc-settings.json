@@ -9,6 +9,10 @@
       "args": ["start"],
       "filetypes": ["sh"],
       "ignoredRootPaths": ["~"]
+    },
+    "lua": {
+      "command": "lua-lsp",
+      "filetypes": ["lua"]
     }
   },
   "suggest.echodocSupport": true,
@@ -17,5 +21,6 @@
   "prettier.requireConfig": true,
   "prettier.singleQuote": true,
   "prettier.trailingComma": "all",
-  "prettier.eslintIntegration": true
+  "prettier.eslintIntegration": true,
+  "rust-client.channel": "stable"
 }
