@@ -21,16 +21,11 @@ plugins=(
   gitignore
   osx
   sublime
-  vi-mode
   zsh-syntax-highlighting
 )
 
 # Default editor
 export EDITOR='nvim'
-
-# vi mode
-bindkey -v
-export KEYTIMEOUT=1
 
 # Source base .zsh
 source $ZSH/oh-my-zsh.sh

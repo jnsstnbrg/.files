@@ -12,7 +12,6 @@ Plug 'ludovicchabant/vim-gutentags'                                       " Tag 
 Plug 'mhinz/vim-startify'                                                 " Start screen for Vim
 Plug 'neoclide/coc.nvim', {'branch': 'release'}                           " Intellisense engine for vim8 & neovim
 Plug 'plytophogy/vim-virtualenv'                                          " Adds support for pyenv virtualenvs
-Plug 'rafi/awesome-vim-colorschemes'                                      " Collection of awesome color schemes for Vim
 Plug 'rbong/vim-crystalline'                                              " Status line
 Plug 'ryanoasis/vim-devicons'                                             " Devicons (needs to go last, can alter other plugins)
 Plug 'fatih/vim-go'                                                       " Adds Go language support
@@ -24,6 +23,7 @@ Plug 'tpope/vim-rhubarb'                                                  " Sets
 Plug 'tpope/vim-surround'                                                 " Adds surroundings like parentheses, brackets, quotes, XML tags, etc. Use with cs'
 Plug 'tpope/vim-vinegar'                                                  " Filesystem project drawer, press - to open
 Plug 'w0rp/ale'                                                           " ALE (Asynchronous Lint Engine) is a plugin for providing linting in Neovim
+Plug 'lifepillar/vim-gruvbox8'
 call plug#end()
 
 " Leave the past behind
@@ -36,7 +36,7 @@ set nomodeline
 set termguicolors
 
 " Color scheme
-colorscheme gruvbox
+colorscheme gruvbox8
 set background=dark
 
 " Set leader
@@ -90,7 +90,6 @@ let g:echodoc_enable_at_startup = 1
 
 nmap <silent> gn <Plug>(coc-rename)
 nmap <silent> gd <Plug>(coc-definition)
-nmap <silent> gt <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
 
@@ -116,9 +115,6 @@ augroup end
 
 command! -nargs=0 Format :call CocAction('format')
 command! -nargs=0 Prettier :CocCommand prettier.formatFile
-
-" Add status line support, for integration with other plugin, checkout `:h coc-status`
-set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
 " }}}
 
 " Ale {{{
@@ -132,7 +128,7 @@ let g:ale_linters = {'javascript': ['standard']}
 let g:ale_fix_on_save = 1
 " }}}
 
-" fzf {{{
+" fzf and ripgrep {{{
 set rtp+=/usr/local/opt/fzf
 
 lua require("fzf")
@@ -150,9 +146,7 @@ let g:fzf_layout = { 'window': 'lua NavigationFloatingWin()' }
 let g:fzf_commits_log_options = '--graph --color=always --format="%C(auto)%h%d %s %C(blue)%C(bold)%cr%C(white)"'
 
 nmap <C-p> :Files<CR>
-" }}}
 
-" ripgrep {{{
 if executable('rg')
   set grepprg=rg\ --vimgrep
 
@@ -164,9 +158,9 @@ if executable('rg')
     \           : fzf#vim#with_preview({'options': '--delimiter : --nth 4..'}, 'right:50%:hidden', '?'),
     \   <bang>0)
 
-  nnoremap <C-g> :Rg<Cr>
+  nnoremap <C-f> :Rg<Cr>
 endif
-" "}}}
+" }}}
 
 " GitGutter {{{
 " Make GitGutter work in NeoVim.
@@ -413,6 +407,8 @@ nnoremap H ^
 nnoremap L $
 vnoremap H ^
 vnoremap L g_
+
+nnoremap <C-b> :Buf<Cr>
 
 " Trim trailing whitespace on save
 autocmd BufWritePre * :%s/\s\+$//e
