@@ -24,6 +24,7 @@ Plug 'tpope/vim-surround'                                                 " Adds
 Plug 'tpope/vim-vinegar'                                                  " Filesystem project drawer, press - to open
 Plug 'w0rp/ale'                                                           " ALE (Asynchronous Lint Engine) is a plugin for providing linting in Neovim
 Plug 'lifepillar/vim-gruvbox8'
+Plug 'psliwka/vim-smoothie'
 call plug#end()
 
 " Leave the past behind
