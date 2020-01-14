@@ -1,3 +1,4 @@
 .DS_Store
 private/
 tags
+git/gitconfig.local.symlink
