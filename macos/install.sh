@@ -33,6 +33,3 @@ if [[ ! -d ~/.ssh ]]; then
   echo "› add symlink to ~/.ssh from iCloud"
   ln -s ~/iCloud/.ssh ~
 fi
-
-echo "› Add SDK headers for XCode command line tools"
-sudo installer -pkg /Library/Developer/CommandLineTools/Packages/macOS_SDK_headers_for_macOS_10.14.pkg -target /
