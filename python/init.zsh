@@ -1,7 +1,7 @@
 if (( $+commands[pyenv] )); then
-  eval "$(pyenv init - zsh)"
+  eval "$(pyenv init -)"
   if (( $+commands[pyenv-virtualenv-init] )); then
-    eval "$(pyenv virtualenv-init - zsh)"
+    eval "$(pyenv virtualenv-init -)"
   fi
   function pyenv_prompt_info() {
     echo "$(pyenv version-name)"
