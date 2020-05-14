@@ -1,7 +1,6 @@
 {
-  "coc.preferences.formatOnSaveFiletypes": ["javascript", "typescript", "json"],
+  "coc.preferences.formatOnSaveFiletypes": ["css", "markdown", "json"],
   "diagnostic.displayByAle": true,
-  "eslint.filetypes": ["javascript", "typescript"],
   "javascript.suggestionActions.enabled": false,
   "languageserver": {
     "bash": {
@@ -18,9 +17,5 @@
   "suggest.echodocSupport": true,
   "suggest.triggerAfterInsertEnter": true,
   "tsserver.npm": "~/.nodenv/versions/10.13.0/bin/npm",
-  "prettier.requireConfig": true,
-  "prettier.singleQuote": true,
-  "prettier.trailingComma": "all",
-  "prettier.eslintIntegration": true,
-  "rust-client.channel": "stable"
+  "python.jediEnabled": false
 }
