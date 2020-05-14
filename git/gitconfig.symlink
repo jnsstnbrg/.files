@@ -1,29 +1,27 @@
-# This is Git's per-user configuration file.
-[user]
-	name = Jonas Stenberg
-	email = jonas.d.stenberg@gmail.com
+[include]
+  path = ~/.gitconfig.local
+[hub]
+  protocol = https
+[color]
+  diff = auto
+  status = auto
+  branch = auto
+  ui = true
 [core]
-	autocrlf = false
-	pager =
-	excludesfile = /Users/jonasstenberg/.gitignore
-[http]
-	sslVerify = false
-[push]
-	default = simple
-[credential]
-	writelog = true
-[rerere]
-	enabled = true
-[merge]
-	tool = vimdiff
+  excludesfile = ~/.gitignore
+  editor = nvim
+[apply]
+  whitespace = nowarn
 [mergetool]
-	prompt = true
-[mergetool "vimdiff"]
-	cmd = nvim -d $LOCAL $REMOTE $MERGED -c '$wincmd w' -c 'wincmd J'
+  keepBackup = false
+  cmd = nvim -d $LOCAL $REMOTE $MERGED -c '$wincmd w' -c 'wincmd J'
 [difftool]
-	prompt = false
+  prompt = false
 [diff]
 	tool = vimdiff
-[color]
-	ui = true
-	diff = true
+[help]
+  autocorrect = 1
+[push]
+  default = simple
+[credential]
+  helper = osxkeychain
