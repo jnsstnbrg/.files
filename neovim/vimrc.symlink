@@ -12,7 +12,7 @@ Plug 'ludovicchabant/vim-gutentags'                                       " Tag 
 Plug 'mhinz/vim-startify'                                                 " Start screen for Vim
 Plug 'neoclide/coc.nvim', {'branch': 'release'}                           " Intellisense engine for vim8 & neovim
 Plug 'plytophogy/vim-virtualenv'                                          " Adds support for pyenv virtualenvs
-Plug 'rbong/vim-crystalline'                                              " Status line
+Plug 'itchyny/lightline.vim'
 Plug 'ryanoasis/vim-devicons'                                             " Devicons (needs to go last, can alter other plugins)
 Plug 'fatih/vim-go'                                                       " Adds Go language support
 Plug 'sheerun/vim-polyglot'                                               " A collection of language packs for Vim
@@ -25,6 +25,7 @@ Plug 'tpope/vim-vinegar'                                                  " File
 Plug 'w0rp/ale'                                                           " ALE (Asynchronous Lint Engine) is a plugin for providing linting in Neovim
 Plug 'lifepillar/vim-gruvbox8'
 Plug 'psliwka/vim-smoothie'
+Plug 'christoomey/vim-tmux-navigator'
 call plug#end()
 
 " Leave the past behind
@@ -63,6 +64,26 @@ set ttyfast
 
 " Plugs
 " ===========================================================================
+
+" Lightline Coc {{{
+function! CocCurrentFunction()
+    return get(b:, 'coc_current_function', '')
+endfunction
+
+let g:lightline = {
+      \ 'colorscheme': 'wombat',
+      \ 'active': {
+      \   'left': [ [ 'mode', 'paste' ],
+      \             [ 'gitbranch', 'cocstatus', 'currentfunction', 'readonly', 'filename', 'modified' ] ]
+      \ },
+      \ 'component_function': {
+      \   'cocstatus': 'coc#status',
+      \   'currentfunction': 'CocCurrentFunction',
+      \   'gitbranch': 'FugitiveHead'
+      \ },
+      \ }
+
+" }}}
 
 " Coc.nvim {{{
 " don't give |ins-completion-menu| messages.
@@ -122,10 +143,13 @@ command! -nargs=0 Prettier :CocCommand prettier.formatFile
 let g:ale_sign_error = '>>'
 let g:ale_sign_warning = '--'
 " let g:ale_fixers = {'javascript': ['eslint']}
-let g:ale_fixers = {'javascript': ['standard']}
 " let g:ale_linters = {'javascript': ['eslint', 'prettier']}
-let g:ale_linters = {'javascript': ['standard']}
+let g:ale_linters = {
+\   'javascript': ['standard'],
+\}
+let g:ale_fixers = {'javascript': ['standard']}
 
+let g:ale_lint_on_save = 1
 let g:ale_fix_on_save = 1
 " }}}
 
@@ -221,25 +245,11 @@ let g:go_addtags_transform = "camelcase"
 au BufRead,BufNewFile *.py set expandtab
 let g:python_host_prog = '/usr/local/opt/pyenv/versions/neovim2/bin/python'
 let g:python3_host_prog = '/usr/local/opt/pyenv/versions/neovim3/bin/python'
+let g:pymode_python = 'python3'
 " }}}
 
 " Vue {{{
 let g:vue_disable_pre_processors = 1
-" }}}
-
-" Crystalline {{{
-function! StatusLine(current)
-  return (a:current ? crystalline#mode() . '%#Crystalline#' : '%#CrystallineInactive#')
-        \ . ' %f%h%w%m%r '
-        \ . (a:current ? '%#CrystallineFill# %{fugitive#head()} ' : '')
-        \ . '%=' . (a:current ? '%#Crystalline# %{&paste?"PASTE ":""}%{&spell?"SPELL ":""}' . crystalline#mode_color() : '')
-        \ . ' %{&ft}[%{&enc}][%{&ffs}] %l/%L %3(%c%V%) %P '
-endfunction
-
-let g:crystalline_statusline_fn = 'StatusLine'
-let g:crystalline_theme = 'gruvbox'
-
-set laststatus=2
 " }}}
 
 " Gutentags {{{
