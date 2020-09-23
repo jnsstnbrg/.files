@@ -242,10 +242,10 @@ let g:go_addtags_transform = "camelcase"
 " }}}
 
 " Python {{{
-au BufRead,BufNewFile *.py set expandtab
-let g:python_host_prog = '/usr/local/opt/pyenv/versions/neovim2/bin/python'
-let g:python3_host_prog = '/usr/local/opt/pyenv/versions/neovim3/bin/python'
-let g:pymode_python = 'python3'
+" au BufRead,BufNewFile *.py set expandtab
+" let g:python_host_prog = '/usr/local/opt/pyenv/versions/neovim2/bin/python'
+" let g:python3_host_prog = '/usr/local/opt/pyenv/versions/neovim3/bin/python'
+" let g:pymode_python = 'python3'
 " }}}
 
 " Vue {{{
