@@ -20,7 +20,6 @@ plugins=(
   encode64
   gitignore
   osx
-  sublime
   zsh-syntax-highlighting
 )
 
@@ -56,7 +55,7 @@ done
 
 # initialize autocomplete here, otherwise functions won't be loaded
 autoload -Uz compinit
-if [ $(date +'%j') != $(stat -f '%Sm' -t '%j' ~/.zcompdump) ]; then
+if [ $(date +'%j') != $(/usr/bin/stat -f '%Sm' -t '%j' ${ZDOTDIR:-$HOME}/.zcompdump) ]; then
   compinit
 else
   compinit -C
@@ -76,10 +75,6 @@ if which brew &> /dev/null && [ -f "$(brew --prefix)/share/bash-completion/bash_
 elif [ -f /etc/bash_completion ]; then
 	source /etc/bash_completion;
 fi;
-
-if [[ -n $VIRTUAL_ENV && -e "${VIRTUAL_ENV}/bin/activate" ]]; then
-  source "${VIRTUAL_ENV}/bin/activate"
-fi
 
 if [ -d "$HOME/.local/bin" ]; then
   export PATH="$HOME/.local/bin:$PATH"
