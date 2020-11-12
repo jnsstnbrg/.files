@@ -50,13 +50,10 @@ cask "font-fira-code"
 cask "font-hack"
 cask "font-hasklig"
 cask "font-inconsolata"
-cask "font-metropolis"
 cask "font-source-code-pro"
-cask "font-ubuntu"
 
 # Sans-serif
 cask "font-league-gothic"
-cask "font-roboto"
 
 # Nerd fonts
 cask "font-hack-nerd-font"
@@ -85,10 +82,6 @@ cask "qlmarkdown"
 cask "qlprettypatch"
 cask "qlstephen"
 cask "quicklook-json"
-
-# Security
-cask "1password"
-cask "nordvpn"
 
 # Other
 cask "bettertouchtool"

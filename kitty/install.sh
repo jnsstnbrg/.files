@@ -1,9 +1,9 @@
-if [ ! -f ~/.config/kitty/snazzy.conf ]; then
-  mkdir -p "~/.config/kitty"
-  ln -s "${DOTFILES}/kitty/snazzy.conf" ~/.config/kitty/snazzy.conf
+if [ ! -L ~/.config/kitty/snazzy.conf ]; then
+  mkdir -p ~/.config/kitty
+  ln -s ~/.dotfiles/kitty/snazzy.conf ~/.config/kitty/snazzy.conf
 fi
 
-if [ ! -f ~/.config/kitty/kitty.conf ]; then
-  mkdir -p "~/.config/kitty"
-  ln -s "${DOTFILES}/kitty/kitty.conf" ~/.config/kitty/kitty.conf
+if [ ! -L ~/.config/kitty/kitty.conf ]; then
+  mkdir -p ~/.config/kitty
+  ln -s ~/.dotfiles/kitty/kitty.conf ~/.config/kitty/kitty.conf
 fi

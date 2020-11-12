@@ -16,6 +16,6 @@ if [[ ! -d "${ZSH_CUSTOM1:-$ZSH/custom}/plugins/alias-tips" ]]; then
 	git clone https://github.com/djui/alias-tips.git ${ZSH_CUSTOM1:-$ZSH/custom}/plugins/alias-tips
 fi
 
-if [[ ! -d "${ZSH_CUSTOM1:-$ZSH}/themes/jnsstnbrg" ]]; then
+if [[ ! -L "${ZSH_CUSTOM1:-$ZSH}/themes/jnsstnbrg.zsh-theme" ]]; then
 	ln -s "${DOTFILES}/zsh/theme.zsh" "${ZSH_CUSTOM1:-$ZSH}/themes/jnsstnbrg.zsh-theme"
 fi

@@ -1,0 +1,13 @@
+# ~/.tmuxinator/halohq.yml
+
+name: halohq
+root: ~/Develop/Halo/halohq.io
+
+windows:
+  - editor: $EDITOR
+  - server:
+      root: ~/Develop/Halo/halohq.io-bolt
+      layout: even-horizontal
+      panes:
+        - php bin/console server:run
+        - cd ~/Develop/Halo/halohq.io
